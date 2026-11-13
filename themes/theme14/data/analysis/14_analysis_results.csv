@@ -1,0 +1,6 @@
+﻿theme_id,theme_name,formula_id,formula_name,value,unit,data_source,calculation_condition,notes,status
+14,公共施設の将来負担,F001,合計,135,件,p1_kihon_shisetsu.csv,施設データの合計,,計算済
+14,公共施設の将来負担,F002,算術平均（延床面積）,3181.05593,m2,p1_tatemono.csv,施設データの平均,,計算済
+14,公共施設の将来負担,F014,人口増減率,-8.50199,%,population_projection_v2.csv,(P_t - P_t-1)/P_t-1 * 100 (端点),P_t-1 > 0,計算済
+14,公共施設の将来負担,F015,年平均人口増減率（CAGR）,-0.354781,%,population_projection_v2.csv,(P_t / P_0)^(1/n) - 1 * 100,"P_0 > 0, n > 0",計算済
+14,公共施設の将来負担,F085,決定係数,1.0,無次元(0-1),population_projection_v2.csv,R^2 = 1 - Σ(y-ŷ)^2 / Σ(y-ȳ)^2 (単回帰),外挿の説明力,計算済

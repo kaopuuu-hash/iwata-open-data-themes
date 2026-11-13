@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>磐田市オープンデータ GIS可視化プロトタイプ</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+body { margin: 0; font-family: 'Yu Gothic', sans-serif; }
+#map { height: 100vh; width: 100%; }
+.controls {
+    position: absolute; top: 10px; right: 10px; z-index: 1000;
+    background: white; padding: 10px; border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    max-height: 80vh; overflow-y: auto;
+}
+.controls h3 { margin: 0 0 10px 0; font-size: 14px; }
+.controls label { display: block; margin: 5px 0; font-size: 13px; }
+.controls input { margin-right: 5px; }
+.legend { margin-top: 10px; font-size: 12px; }
+.legend-item { display: flex; align-items: center; margin: 3px 0; }
+.legend-color { width: 12px; height: 12px; margin-right: 5px; border-radius: 50%; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div class="controls">
+    <h3>レイヤー切替</h3>
+    <label><input type="checkbox" id="facilities" checked> 公共施設 (135)</label>
+    <label><input type="checkbox" id="busstops" checked> バス停 (714)</label>
+    <label><input type="checkbox" id="parks" checked> 公園 (93)</label>
+    <label><input type="checkbox" id="tourist" checked> 観光施設 (37)</label>
+    <label><input type="checkbox" id="shelters" checked> 避難所 (43)</label>
+    <div class="legend">
+        <h3>凡例</h3>
+        <div class="legend-item"><div class="legend-color" style="background:#377eb8"></div>公共施設</div>
+        <div class="legend-item"><div class="legend-color" style="background:#e41a1c"></div>バス停</div>
+        <div class="legend-item"><div class="legend-color" style="background:#4daf4a"></div>公園</div>
+        <div class="legend-item"><div class="legend-color" style="background:#ff7f00"></div>観光施設</div>
+        <div class="legend-item"><div class="legend-color" style="background:#984ea3"></div>避難所</div>
+    </div>
+</div>
+<script>
+// Initialize map
+var map = L.map('map').setView([34.72, 137.85], 11);
+
+// Base map (OpenStreetMap)
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+// Layer groups
+var facilityLayer = L.layerGroup().addTo(map);
+var busLayer = L.layerGroup().addTo(map);
+var parkLayer = L.layerGroup().addTo(map);
+var touristLayer = L.layerGroup().addTo(map);
+var shelterLayer = L.layerGroup().addTo(map);
+
+// Load data from CSV (embedded as JS arrays for prototype)
+// Public facilities
+var facilities = [
+    [34.73076, 137.85744, "磐田北小学校", "小学校"],
+    [34.71675, 137.84932, "磐田中部小学校", "小学校"],
+    [34.71642, 137.84583, "磐田西小学校", "小学校"],
+    [34.69241, 137.84418, "磐田南小学校", "小学校"],
+];
+
+// Add markers
+facilities.forEach(function(f) {
+    L.circleMarker([f[0], f[1]], {radius: 6, fillColor: '#377eb8', color: '#000', weight: 1, fillOpacity: 0.7})
+        .bindPopup('<b>' + f[2] + '</b><br>' + f[3])
+        .addTo(facilityLayer);
+});
+
+// Bus stops (sample)
+var busStops = [
+    [34.722255, 137.853661, "只来下公園前"],
+    [34.731864, 137.879059, "西貝塚公園前"],
+];
+
+busStops.forEach(function(b) {
+    L.circleMarker([b[0], b[1]], {radius: 3, fillColor: '#e41a1c', color: '#000', weight: 0.5, fillOpacity: 0.5})
+        .bindPopup(b[2])
+        .addTo(busLayer);
+});
+
+// Layer toggle
+document.getElementById('facilities').addEventListener('change', function() {
+    if (this.checked) map.addLayer(facilityLayer); else map.removeLayer(facilityLayer);
+});
+document.getElementById('busstops').addEventListener('change', function() {
+    if (this.checked) map.addLayer(busLayer); else map.removeLayer(busLayer);
+});
+document.getElementById('parks').addEventListener('change', function() {
+    if (this.checked) map.addLayer(parkLayer); else map.removeLayer(parkLayer);
+});
+document.getElementById('tourist').addEventListener('change', function() {
+    if (this.checked) map.addLayer(touristLayer); else map.removeLayer(touristLayer);
+});
+document.getElementById('shelters').addEventListener('change', function() {
+    if (this.checked) map.addLayer(shelterLayer); else map.removeLayer(shelterLayer);
+});
+</script>
+</body>
+</html>

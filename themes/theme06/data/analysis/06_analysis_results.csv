@@ -1,0 +1,5 @@
+﻿theme_id,theme_name,formula_id,formula_name,value,unit,data_source,calculation_condition,notes,status
+06,医療・福祉,F041,医療施設密度,1.260324,施設/km2,medical_institutions.csv / census面積,医療施設数 / 対象面積,種別（病院・診療所）を分ける,計算済
+06,医療・福祉,F042,人口当たり医療施設数,1.23596,施設/千人,medical_institutions.csv / 人口,医療施設数 / 人口 * 1000,1000人あたり,計算済
+06,医療・福祉,F043,人口当たり病床数,9.179706,床/千人,medical_institutions.csv 病床数 / 人口,病床数 / 人口 * 1000,,計算済
+06,医療・福祉,F044,高齢者当たり介護施設数,3.112649,施設/千人,care_providers_summary.csv / 年齢別人口,介護施設数 / 65歳以上人口 * 1000,,計算済

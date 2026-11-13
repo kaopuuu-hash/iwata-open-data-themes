@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>磐田市 生活デザート 分析</title>
+<style>
+body{font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;margin:0;padding:16px;background:#fafafa;color:#333;}
+.container{max-width:900px;margin:0 auto;}
+h1{font-size:24px;border-bottom:2px solid #333;padding-bottom:8px;}
+h2{font-size:20px;border-bottom:1px solid #999;padding-bottom:4px;margin-top:28px;}
+p{margin:8px 0;line-height:1.6;}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px;}
+th,td{border:1px solid #ccc;padding:6px 8px;text-align:left;}
+th{background:#f5f5f5;}
+.note{font-size:12px;color:#666;margin-top:16px;}
+</style>
+</head>
+<body>
+<div class="container">
+<nav style="margin-bottom:12px;font-size:14px;"><a href="../index.html">&larr; 入口へ</a></nav>
+
+<h1>磐田市 生活デザート 分析</h1>
+<p>テーマID: 09 | 対象年度: 2020-2026 | 出典: 磐田市オープンデータ・e-Stat</p>
+<h2>分析概要</h2>
+<p># テーマ9: 生活空白地帯分析 レポート（v2・作り直し）<br>## 0. 問い・仮説（工程1）<br>- **問い**：バス停のないグリッドセルはどこにどれだけあるか。<br>- **仮説**：空白セルは郊外に多い。<br>- **検証方法**：0.01°グリッド（255セル）上のバス停数を数える。郊外・山間部の判定、人口との対応づけは行わない（地形・人口の空間分布データがないため）。<br>## 1. データ出典<br>| データ | 提供元 | 取得日 | 対象年度 | 利用条件 |<br>|---|---|---|---|---|<br>| バス停留所データ v3.0 | 国土数値情報（国交省） | 2026-11-07 | 令和4年度（2022年） | オープンデータ |<br>## 2. 分析方法<br>- 範囲：緯度34.68-34.85、経度137.80-137.95。<br>- グリッド：0.01°（約1.1km）、17行×15列=255セル。</p>
+<h2>分析結果（抜粋）</h2>
+<table><thead><tr><th>theme_id</th><th>theme_name</th><th>formula_id</th><th>formula_name</th><th>value</th><th>unit</th><th>data_source</th><th>calculation_condition</th><th>notes</th><th>status</th></tr></thead><tbody><tr><td>09</td><td>生活空白</td><td>F035</td><td>人口当たり店舗数</td><td>2.50192</td><td>店/千人</td><td>theme07 iwata_food_stores_consolidated.csv / 人口</td><td>店舗数 / 人口 * 1000</td><td>医療・商業の重ね合わせ</td><td>計算済</td></tr><tr><td>09</td><td>生活空白</td><td>F079</td><td>カーネル密度推定（バス停）</td><td>86.583006</td><td>密度/単位面積</td><td>bus_stops_v2.csv バス停座標</td><td>ガウスカーネル 10x10グリッド最大値</td><td></td><td>計算済</td></tr></tbody></table>
+<p class="note">出典: 09_analysis_results.csv。集計単位・対象年度は CSV を参照。人口等の二重計上は防止済み（個別町299行ベース）。</p>
+</div>
+
+<!-- theme-nav -->
+<nav style="margin-top:32px;padding-top:12px;border-top:1px solid #ccc;font-size:14px;"><a href="../theme08/index.html">&larr; 前のテーマ: 公共交通</a> ｜ <a href="../theme10/index.html">次のテーマ: 公園・緑地 &rarr;</a> ｜ <a href="../index.html">入口へ戻る</a></nav>
+</body>
+</html>

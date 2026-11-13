@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>磐田市 土地利用・住宅 分析</title>
+<style>
+body{font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;margin:0;padding:16px;background:#fafafa;color:#333;}
+.container{max-width:900px;margin:0 auto;}
+h1{font-size:24px;border-bottom:2px solid #333;padding-bottom:8px;}
+h2{font-size:20px;border-bottom:1px solid #999;padding-bottom:4px;margin-top:28px;}
+p{margin:8px 0;line-height:1.6;}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px;}
+th,td{border:1px solid #ccc;padding:6px 8px;text-align:left;}
+th{background:#f5f5f5;}
+.note{font-size:12px;color:#666;margin-top:16px;}
+</style>
+</head>
+<body>
+<div class="container">
+<nav style="margin-bottom:12px;font-size:14px;"><a href="../index.html">&larr; 入口へ</a></nav>
+
+<p style="background:#fff3cd;border:1px solid #e0c36a;padding:8px 12px;font-size:14px;">※ データ不足のため暫定版です</p>
+
+<h1>磐田市 土地利用・住宅 分析</h1>
+<p>テーマID: 13 | 対象年度: 2020-2026 | 出典: 磐田市オープンデータ・e-Stat</p>
+<h2>分析概要</h2>
+<p># テーマ13: 農地・住宅・土地利用分析 レポート（v2・作り直し）<br>## 0. 問い・仮説（工程1）<br>- **問い**：都市計画区域・市街化区域のポリゴン構成はどうか。産業別就業者メッシュの記録状況はどうか。<br>- **仮説**：市街化区域が複数のポリゴンで構成され、産業別就業者データは広く記録されている。<br>- **検証方法**：令和2年度都市計画基礎調査のポリゴン数と、国土数値情報の産業別就業者メッシュ718件の記録状況を数える。農地・住宅の土地利用分類、都市化の程度の判定は行わない（詳細分類データがないため）。<br>## 1. データ出典<br>| データ | 提供元 | 取得日 | 対象年度 | 利用条件 |<br>|---|---|---|---|---|<br>| 都市計画基礎調査（区域ポリゴン） | 磐田市 | 2026-11-07 | 令和2年度 | — |<br>| 産業別就業者メッシュ | 国土数値情報 | 2026-11-07 | 2020年 | 非商用 |<br>## 2. 分析結果<br>### 2.1 区域ポリゴン</p>
+<h2>分析結果（抜粋）</h2>
+<table><thead><tr><th>theme_id</th><th>theme_name</th><th>formula_id</th><th>formula_name</th><th>value</th><th>unit</th><th>data_source</th><th>calculation_condition</th><th>notes</th><th>status</th></tr></thead><tbody><tr><td>13</td><td>農地・住宅</td><td>F072</td><td>面積比率（都市計画区域）</td><td></td><td>%</td><td>p1_urban_planning_inventory.csv (属性台帳のみ)</td><td>対象区域面積 / 全体面積 * 100</td><td>SHP図形本体未取得のため数値化不可</td><td>データ不足に近い</td></tr></tbody></table>
+<p class="note">出典: 13_analysis_results.csv。集計単位・対象年度は CSV を参照。人口等の二重計上は防止済み（個別町299行ベース）。</p>
+</div>
+
+<!-- theme-nav -->
+<nav style="margin-top:32px;padding-top:12px;border-top:1px solid #ccc;font-size:14px;"><a href="../theme12/index.html">&larr; 前のテーマ: 避難・孤立</a> ｜ <a href="../theme14/index.html">次のテーマ: 施設・将来負担 &rarr;</a> ｜ <a href="../index.html">入口へ戻る</a></nav>
+</body>
+</html>

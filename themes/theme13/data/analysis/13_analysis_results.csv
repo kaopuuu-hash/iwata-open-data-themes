@@ -1,0 +1,2 @@
+﻿theme_id,theme_name,formula_id,formula_name,value,unit,data_source,calculation_condition,notes,status
+13,農地・住宅,F072,面積比率（都市計画区域）,,%,p1_urban_planning_inventory.csv (属性台帳のみ),対象区域面積 / 全体面積 * 100,SHP図形本体未取得のため数値化不可,データ不足に近い

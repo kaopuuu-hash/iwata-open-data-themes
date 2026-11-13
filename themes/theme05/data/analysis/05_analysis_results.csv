@@ -1,0 +1,19 @@
+﻿theme_id,theme_name,formula_id,formula_name,value,unit,data_source,calculation_condition,notes,status
+05,文化・観光,F001,合計（文化財）,186,件,cultural_properties.csv,資源件数の合計,,計算済
+05,文化・観光,F001,合計（観光施設）,37,件,tourist_facilities.csv,資源件数の合計,,計算済
+05,文化・観光,F012,構成比（料金:無料）,2.702703,%,tourist_facilities.csv fee,件数 / 総件数 * 100,,計算済
+05,文化・観光,F012,構成比（料金:不明）,51.351351,%,tourist_facilities.csv fee,件数 / 総件数 * 100,,計算済
+05,文化・観光,F012,構成比（料金:入園無料）,5.405405,%,tourist_facilities.csv fee,件数 / 総件数 * 100,,計算済
+05,文化・観光,F012,構成比（料金:大人330円、小中学生110円、幼児及び70歳以上無料）,2.702703,%,tourist_facilities.csv fee,件数 / 総件数 * 100,,計算済
+05,文化・観光,F012,構成比（料金:入館無料）,10.810811,%,tourist_facilities.csv fee,件数 / 総件数 * 100,,計算済
+05,文化・観光,F012,構成比（料金:入館料　大人310円、学生200円、小・中学生100円）,2.702703,%,tourist_facilities.csv fee,件数 / 総件数 * 100,,計算済
+05,文化・観光,F012,構成比（料金:見学料無料）,2.702703,%,tourist_facilities.csv fee,件数 / 総件数 * 100,,計算済
+05,文化・観光,F012,構成比（料金:大人900円、中高生500円、小学生以下無料）,2.702703,%,tourist_facilities.csv fee,件数 / 総件数 * 100,,計算済
+05,文化・観光,F012,構成比（料金:入館は無料（体験は有料））,2.702703,%,tourist_facilities.csv fee,件数 / 総件数 * 100,,計算済
+05,文化・観光,F012,構成比（料金:大人500円、小中学生100円）,2.702703,%,tourist_facilities.csv fee,件数 / 総件数 * 100,,計算済
+05,文化・観光,F012,構成比（料金:大人350円、小人無料）,2.702703,%,tourist_facilities.csv fee,件数 / 総件数 * 100,,計算済
+05,文化・観光,F012,構成比（料金:入館料無料）,2.702703,%,tourist_facilities.csv fee,件数 / 総件数 * 100,,計算済
+05,文化・観光,F012,構成比（料金:大人500円、小学生以下300円）,2.702703,%,tourist_facilities.csv fee,件数 / 総件数 * 100,,計算済
+05,文化・観光,F012,構成比（料金:予約制  詳細はホームページにて確認ください。）,5.405405,%,tourist_facilities.csv fee,件数 / 総件数 * 100,,計算済
+05,文化・観光,F079,カーネル密度推定,79.744068,密度/単位面積,tourist_facilities.csv 観光施設座標,ガウスカーネル 10x10グリッド最大値,観光施設37件,計算済
+05,文化・観光,F080,空間重心,"(137.847543, 34.729295)","経度,緯度",tourist_facilities.csv 座標,Σw_i x_i / Σw_i (w=1),資源の中心点,計算済

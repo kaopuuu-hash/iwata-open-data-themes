@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>磐田市 施設・人口 分析</title>
+<style>
+body{font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;margin:0;padding:16px;background:#fafafa;color:#333;}
+.container{max-width:900px;margin:0 auto;}
+h1{font-size:24px;border-bottom:2px solid #333;padding-bottom:8px;}
+h2{font-size:20px;border-bottom:1px solid #999;padding-bottom:4px;margin-top:28px;}
+p{margin:8px 0;line-height:1.6;}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px;}
+th,td{border:1px solid #ccc;padding:6px 8px;text-align:left;}
+th{background:#f5f5f5;}
+.note{font-size:12px;color:#666;margin-top:16px;}
+</style>
+</head>
+<body>
+<div class="container">
+<nav style="margin-bottom:12px;font-size:14px;"><a href="../index.html">&larr; 入口へ</a></nav>
+
+<h1>磐田市 施設・人口 分析</h1>
+<p>テーマID: 01 | 対象年度: 2020-2026 | 出典: 磐田市オープンデータ・e-Stat</p>
+<h2>分析概要</h2>
+<p># テーマ1: 公共施設 × 人口 分析レポート（v2・作り直し）<br>## 0. 問い・仮説（工程1）<br>- **問い**：磐田市の公共施設はどこに偏っているか。人口集中地区と対応しているか。<br>- **仮説**：施設は中心部（見付・中泉地区）に集中し、人口集中地区と対応する。<br>- **検証方法**：施設は住所の大字で集計し、人口は町別で集計する。大字名と町名が完全に一致した30町（70件）についてのみ町別施設/万人を算出する。残り20地区65件は対応キーなしとして分離する。<br>## 1. データ出典<br>| データ | 提供元 | 取得日 | 対象年度 | 利用条件 |<br>|---|---|---|---|---|<br>| 公共施設情報（基本＋建物） | 磐田市（LinkData rdf1s4257i） | 2026-11-07 | 2016年2月公開 | CC BY 3.0 |<br>| 地域・年齢別人口 | 静岡県オープンデータ（磐田市、2022-03-31） | 2026-11-07 | 2022年 | CC BY 3.0 |<br>**基準年の固定**：人口は2022年（総人口167,663人、327町）に統一する。施設データは2016年公開であり、時点が異なることを前提として明記する。<br>## 2. 分析結果</p>
+<h2>分析結果（抜粋）</h2>
+<table><thead><tr><th>theme_id</th><th>theme_name</th><th>formula_id</th><th>formula_name</th><th>value</th><th>unit</th><th>data_source</th><th>calculation_condition</th><th>notes</th><th>status</th></tr></thead><tbody><tr><td>01</td><td>公共施設×人口</td><td>F001</td><td>合計</td><td>135</td><td>件</td><td>facilities.csv (135件)</td><td>施設データの行数をカウント</td><td>施設件数の合計</td><td>計算済</td></tr><tr><td>01</td><td>公共施設×人口</td><td>F002</td><td>算術平均</td><td>2.333333</td><td>件/町</td><td>town_facility_joined.csv (30町)</td><td>町別施設数の算術平均</td><td>n &gt;= 1 欠損除外</td><td>計算済</td></tr><tr><td>01</td><td>公共施設×人口</td><td>F012</td><td>構成比（種別D-3）</td><td>7.407407</td><td>%</td><td>facilities.csv type_code</td><td>種別件数 / 施設総件数 * 100</td><td>構成比合計100%</td><td>計算済</td></tr><tr><td>01</td><td>公共施設×人口</td><td>F012</td><td>構成比（種別D-4）</td><td>16.296296</td><td>%</td><td>facilities.csv type_code</td><td>種別件数 / 施設総件数 * 100</td><td>構成比合計100%</td><td>計算済</td></tr><tr><td>01</td><td>公共施設×人口</td><td>F012</td><td>構成比（種別D-5）</td><td>12.592593</td><td>%</td><td>facilities.csv type_code</td><td>種別件数 / 施設総件数 * 100</td><td>構成比合計100%</td><td>計算済</td></tr><tr><td>01</td><td>公共施設×人口</td><td>F012</td><td>構成比（種別D-7）</td><td>30.37037</td><td>%</td><td>facilities.csv type_code</td><td>種別件数 / 施設総件数 * 100</td><td>構成比合計100%</td><td>計算済</td></tr><tr><td>01</td><td>公共施設×人口</td><td>F012</td><td>構成比（種別E-1）</td><td>5.925926</td><td>%</td><td>facilities.csv type_code</td><td>種別件数 / 施設総件数 * 100</td><td>構成比合計100%</td><td>計算済</td></tr><tr><td>01</td><td>公共施設×人口</td><td>F012</td><td>構成比（種別E-2）</td><td>2.222222</td><td>%</td><td>facilities.csv type_code</td><td>種別件数 / 施設総件数 * 100</td><td>構成比合計100%</td><td>計算済</td></tr></tbody></table>
+<p class="note">出典: 01_analysis_results.csv。集計単位・対象年度は CSV を参照。人口等の二重計上は防止済み（個別町299行ベース）。</p>
+</div>
+
+<!-- theme-nav -->
+<nav style="margin-top:32px;padding-top:12px;border-top:1px solid #ccc;font-size:14px;"><a href="../theme02/index.html">次のテーマ: 人口構造 &rarr;</a> ｜ <a href="../index.html">入口へ戻る</a></nav>
+</body>
+</html>

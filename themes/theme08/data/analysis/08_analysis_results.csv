@@ -1,0 +1,3 @@
+﻿theme_id,theme_name,formula_id,formula_name,value,unit,data_source,calculation_condition,notes,status
+08,公共交通,F057,バス停密度,2.45335,か所/km2,bus_stops_v2.csv / 面積,バス停数 / 対象面積,,計算済
+08,公共交通,F071,ユークリッド距離（バス停間平均）,0.074041,座標単位,bus_stops_v2.csv 座標,d_ij = sqrt((xi-xj)^2 + (yi-yj)^2),,計算済

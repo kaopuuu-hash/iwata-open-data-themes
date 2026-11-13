@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>磐田市 地区別人口 (2026-09-30)</title>
+<!-- Plotly.js from official CDN (cdn.plot.ly). SRI not added because hash is version-specific; offline fallback is the PNG in the same folder. -->
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+body{font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;margin:0;padding:16px;background:#fafafa;color:#333;}
+#chart{width:100%;max-width:900px;margin:0 auto;}
+.note{max-width:900px;margin:12px auto;font-size:12px;color:#666;}
+</style>
+</head>
+<body>
+<div id="chart"></div>
+<p class="note">出典: 磐田市公式町別人口表（2026-09-30）。個別町299行の合計 162,983人（地区計行・市総計行は除外）。単位: 人。</p>
+<script>
+const districts = ["磐田","豊田","竜洋","福田","豊岡"];
+const populations = [89700,29251,17717,16086,10229];
+const trace = {
+  x: districts,
+  y: populations,
+  type: 'bar',
+  marker: {color:'#4C72B0'},
+  text: populations.map(v=>v.toLocaleString()+'人'),
+  textposition: 'outside',
+  hovertemplate: '%{x}地区: %{y:,.0f}人<extra></extra>'
+};
+const layout = {
+  title: {text:'磐田市 地区別人口 (2026-09-30)', font:{size:18}},
+  xaxis: {title:'地区'},
+  yaxis: {title:'人口 (人)'},
+  margin: {t:60, b:60, l:80, r:20},
+  responsive: true
+};
+const config = {responsive:true, displayModeBar:true, displaylogo:false};
+Plotly.newPlot('chart',[trace],layout,config);
+</script>
+</body>
+</html>

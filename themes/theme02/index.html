@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>磐田市 人口構造分析</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body { font-family: Arial, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+         line-height: 1.6; margin: 0; padding: 0; color: #333; }
+  .container { max-width: 900px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 24px; border-bottom: 2px solid #333; padding-bottom: 8px; margin-top: 24px; }
+  h2 { font-size: 20px; border-bottom: 1px solid #999; padding-bottom: 4px; margin-top: 28px; }
+  h3 { font-size: 17px; margin-top: 20px; }
+  p { margin: 8px 0; }
+  ul, ol { margin: 8px 0 8px 24px; }
+  li { margin: 4px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+  th, td { border: 1px solid #ccc; padding: 6px 8px; text-align: left; }
+  th { background: #f5f5f5; }
+  td.num, th.num { text-align: right; }
+  .note { font-size: 12px; color: #666; margin: 4px 0; }
+  .source-box { margin-top: 16px; padding: 12px; background: #f5f5f5;
+                border: 1px solid #ddd; border-radius: 5px; font-size: 13px; }
+  .source-box h4 { margin: 0 0 6px; font-size: 15px; }
+  .source-box ul { margin: 4px 0 4px 20px; }
+  .source-box li { margin: 3px 0; }
+  .img-frame { width: 100%; max-width: 720px; margin: 12px auto; display: block;
+               border: 1px solid #ccc; border-radius: 5px; }
+  .highlight { background: #fffde7; padding: 12px; border-left: 4px solid #fbc02d; margin: 12px 0; }
+  .fact { margin: 8px 0; padding: 8px; background: #f9f9f9; border-left: 3px solid #2196f3; }
+  .limitation { margin: 8px 0; padding: 8px; background: #ffeef0; border-left: 3px solid #e57373; }
+  @media (max-width: 600px) {
+    .container { padding: 12px; }
+    h1 { font-size: 20px; }
+    h2 { font-size: 18px; }
+    table { font-size: 12px; }
+    th, td { padding: 4px 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>磐田市 人口構造分析</h1>
+<p>磐田市オープンデータ分析 テーマ2の深掘りページです。</p>
+<p><a href="../index.html">← 分析サイト入口へ戻る</a></p>
+
+<h2>1. 分析の目的</h2>
+<p><strong>問い</strong>：磐田市の高齢化はどの程度進み、人口減少とどう関係しているか。地区差はあるか。</p>
+<p><strong>仮説</strong>：高齢化率は上昇し、年少人口の減少と連動している。地区による差が大きい。</p>
+<p><strong>検証方法</strong>：年齢別人口（2007・2021年）と地域・年齢別人口（2022年）から、総人口・年齢3区分・町別高齢化率を算出する。全国比較は行わない（比較値の出典がないため）。</p>
+
+<h2>2. 総人口と高齢化率の推移</h2>
+<p>磐田市の総人口は2007年176,408人から2022年167,663人へ、15年間で-8,745人（-5.0%）減少しました。一方、高齢化率（65歳以上人口が総人口に占める割合）は19.1%から28.9%へ、+9.8ポイント上昇しています。</p>
+<img src="images/theme2_population_trend.png" alt="総人口の推移（2007・2021・2022年）" class="img-frame">
+<p class="note">図：総人口の推移。2007・2021・2022年（各3月31日現在）。</p>
+<img src="images/theme2_aging_rate.png" alt="高齢化率の推移" class="img-frame">
+<p class="note">図：高齢化率の推移。65歳以上人口 ÷ 総人口。</p>
+<table class=""><thead><tr><th>年度</th><th class="num">総人口</th><th class="num">0〜14歳</th><th class="num">15〜64歳</th><th class="num">65歳以上</th><th class="num">高齢化率</th></tr></thead><tbody><tr><td>2007</td><td class="num">176,408</td><td class="num">24,824 (14.1%)</td><td class="num">117,829 (66.8%)</td><td class="num">33,755 (19.1%)</td><td class="num">19.1%</td></tr><tr><td>2021</td><td class="num">169,013</td><td class="num">21,801 (12.9%)</td><td class="num">98,918 (58.5%)</td><td class="num">48,294 (28.6%)</td><td class="num">28.6%</td></tr><tr><td>2022</td><td class="num">167,663</td><td class="num">21,290 (12.7%)</td><td class="num">97,843 (58.4%)</td><td class="num">48,530 (28.9%)</td><td class="num">28.9%</td></tr></tbody></table>
+<p class="note">注：2007年と2021年は国勢調査系、2022年は住民基本台帳系の値で、口径が異なる可能性があります。15〜64歳は総人口から0〜14歳と65歳以上を引いた計算値です。</p>
+
+<h2>3. 年齢3区分の変化</h2>
+<p>2007→2022年で、0〜14歳は-3,534人、15〜64歳は-19,986人と減少し、65歳以上は+14,775人と増加しました。生産年齢人口の減少が全体の減少を主导しています。</p>
+<img src="images/theme2_age_structure.png" alt="年齢3区分の人口の変化" class="img-frame">
+<p class="note">図：年齢3区分の人口の変化（2007・2021・2022年）。</p>
+
+<h2>4. 5歳階級別人口の比較</h2>
+<p>5歳階級別に見ると、55〜59歳が最大の減少（-5,248人）で、30〜34歳（-4,849人）、25〜29歳（-3,922人）も大きな減少です。一方、70〜74歳が最大の増加（+4,982人）で、85歳以上（+3,712人）も増えています。</p>
+<img src="images/theme2_age5_change.png" alt="5歳階級別人口の増減（2007→2021年）" class="img-frame">
+<p class="note">図：5歳階級別人口の増減（2007→2021年）。赤が減少、緑が増加。85歳以上には100歳以上を含みます。</p>
+<table class=""><thead><tr><th>年齢階級</th><th class="num">2007年</th><th class="num">2021年</th><th class="num">増減</th><th class="num">増減率</th></tr></thead><tbody><tr><td>0-4</td><td class="num">8,158</td><td class="num">6,232</td><td class="num">-1,926</td><td class="num">-23.6%</td></tr><tr><td>5-9</td><td class="num">8,336</td><td class="num">7,441</td><td class="num">-895</td><td class="num">-10.7%</td></tr><tr><td>10-14</td><td class="num">8,330</td><td class="num">8,128</td><td class="num">-202</td><td class="num">-2.4%</td></tr><tr><td>15-19</td><td class="num">9,161</td><td class="num">7,982</td><td class="num">-1,179</td><td class="num">-12.9%</td></tr><tr><td>20-24</td><td class="num">10,856</td><td class="num">8,012</td><td class="num">-2,844</td><td class="num">-26.2%</td></tr><tr><td>25-29</td><td class="num">12,411</td><td class="num">8,489</td><td class="num">-3,922</td><td class="num">-31.6%</td></tr><tr><td>30-34</td><td class="num">13,750</td><td class="num">8,901</td><td class="num">-4,849</td><td class="num">-35.3%</td></tr><tr><td>35-39</td><td class="num">12,117</td><td class="num">10,243</td><td class="num">-1,874</td><td class="num">-15.5%</td></tr><tr><td>40-44</td><td class="num">10,450</td><td class="num">11,428</td><td class="num">+978</td><td class="num">9.4%</td></tr><tr><td>45-49</td><td class="num">10,738</td><td class="num">12,922</td><td class="num">+2,184</td><td class="num">20.3%</td></tr><tr><td>50-54</td><td class="num">12,075</td><td class="num">10,835</td><td class="num">-1,240</td><td class="num">-10.3%</td></tr><tr><td>55-59</td><td class="num">15,284</td><td class="num">10,036</td><td class="num">-5,248</td><td class="num">-34.3%</td></tr><tr><td>60-64</td><td class="num">10,987</td><td class="num">10,070</td><td class="num">-917</td><td class="num">-8.3%</td></tr><tr><td>65-69</td><td class="num">9,446</td><td class="num">11,522</td><td class="num">+2,076</td><td class="num">22.0%</td></tr><tr><td>70-74</td><td class="num">8,204</td><td class="num">13,186</td><td class="num">+4,982</td><td class="num">60.7%</td></tr><tr><td>75-79</td><td class="num">7,060</td><td class="num">9,004</td><td class="num">+1,944</td><td class="num">27.5%</td></tr><tr><td>80-84</td><td class="num">4,925</td><td class="num">6,750</td><td class="num">+1,825</td><td class="num">37.1%</td></tr><tr><td>85歳以上</td><td class="num">4,120</td><td class="num">7,832</td><td class="num">+3,712</td><td class="num">90.1%</td></tr></tbody></table>
+
+<h2>5. 町別人口の増減</h2>
+<p>2010→2021年を、3年とも町名が共通する281町で比較しました。210町が減少、71町が増加しています。281町合計は159,896人から153,831人へ-6,065人（-3.79%）です。市全体では174,945人から169,013人（-5,932人、-3.39%）です。</p>
+<img src="images/theme2_town_decrease_top10.png" alt="町別人口 減少数 top10" class="img-frame">
+<p class="note">図：人口減少数 top10（2010→2021年、3年共通281町）。</p>
+<img src="images/theme2_town_increase_top10.png" alt="町別人口 増加数 top10" class="img-frame">
+<p class="note">図：人口増加数 top10（2010→2021年、3年共通281町）。</p>
+<h3>人口減少数 top10</h3>
+<table class=""><thead><tr><th class="num">順位</th><th>町名</th><th class="num">2010年</th><th class="num">2021年</th><th class="num">増減</th></tr></thead><tbody><tr><td class="num">1</td><td>８番組</td><td class="num">1,363</td><td class="num">147</td><td class="num">-1,216</td></tr><tr><td class="num">2</td><td>東新町一丁目</td><td class="num">1,435</td><td class="num">958</td><td class="num">-477</td></tr><tr><td class="num">3</td><td>１３番組</td><td class="num">823</td><td class="num">368</td><td class="num">-455</td></tr><tr><td class="num">4</td><td>小島</td><td class="num">2,207</td><td class="num">1,793</td><td class="num">-414</td></tr><tr><td class="num">5</td><td>１０の１番組</td><td class="num">403</td><td class="num">141</td><td class="num">-262</td></tr><tr><td class="num">6</td><td>駒場</td><td class="num">1,395</td><td class="num">1,137</td><td class="num">-258</td></tr><tr><td class="num">7</td><td>権現町</td><td class="num">1,469</td><td class="num">1,258</td><td class="num">-211</td></tr><tr><td class="num">8</td><td>１４番北組</td><td class="num">277</td><td class="num">68</td><td class="num">-209</td></tr><tr><td class="num">9</td><td>草崎</td><td class="num">1,773</td><td class="num">1,576</td><td class="num">-197</td></tr><tr><td class="num">10</td><td>河原町</td><td class="num">1,560</td><td class="num">1,375</td><td class="num">-185</td></tr></tbody></table>
+<h3>人口増加数 top10</h3>
+<table class=""><thead><tr><th class="num">順位</th><th>町名</th><th class="num">2010年</th><th class="num">2021年</th><th class="num">増減</th></tr></thead><tbody><tr><td class="num">1</td><td>７番組</td><td class="num">91</td><td class="num">1,104</td><td class="num">+1,013</td></tr><tr><td class="num">2</td><td>新貝</td><td class="num">964</td><td class="num">1,892</td><td class="num">+928</td></tr><tr><td class="num">3</td><td>東大久保</td><td class="num">2,841</td><td class="num">3,421</td><td class="num">+580</td></tr><tr><td class="num">4</td><td>西新町</td><td class="num">1,980</td><td class="num">2,415</td><td class="num">+435</td></tr><tr><td class="num">5</td><td>安久路</td><td class="num">2,056</td><td class="num">2,442</td><td class="num">+386</td></tr><tr><td class="num">6</td><td>１２番組</td><td class="num">421</td><td class="num">784</td><td class="num">+363</td></tr><tr><td class="num">7</td><td>美登里町</td><td class="num">1,049</td><td class="num">1,316</td><td class="num">+267</td></tr><tr><td class="num">8</td><td>９の２番組</td><td class="num">110</td><td class="num">329</td><td class="num">+219</td></tr><tr><td class="num">9</td><td>豊島</td><td class="num">2,064</td><td class="num">2,257</td><td class="num">+193</td></tr><tr><td class="num">10</td><td>二之宮一丁目</td><td class="num">106</td><td class="num">280</td><td class="num">+174</td></tr></tbody></table>
+<p class="note">注：町名の変更・統合があるため、時系列比較は3年共通の281町に限定しています。2010年のみ41町、2015年のみ5町、2021年のみ7町は比較対象外です。</p>
+
+<h2>6. 高齢化率の地域差</h2>
+<p>2022年の町別高齢化率は、施設名である白寿園・豊田一空園を除くと0.0%〜59.6%に分散します。人口加重の高齢化率は28.9%、単純平均は32.4%、中央値は31.5%です。30%以上の町は199町（人口の43.9%）、40%以上は52町（同6.6%）です。</p>
+<img src="images/theme2_aging_distribution.png" alt="町別高齢化率の分布" class="img-frame">
+<p class="note">図：町別高齢化率の分布（2022年・325町）。60%以上は施設2町です。</p>
+<table class=""><thead><tr><th></th><th>高い町</th><th class="num">人口</th><th class="num">高齢化率</th><th>低い町</th><th class="num">人口</th><th class="num">高齢化率</th></tr></thead><tbody><tr><td></td><td>大平北</td><td class="num">47</td><td class="num">59.6%</td><td>南平松</td><td class="num">7</td><td class="num">0.0%</td></tr><tr><td></td><td>彦島</td><td class="num">34</td><td class="num">58.8%</td><td>富丘下原南</td><td class="num">376</td><td class="num">2.4%</td></tr><tr><td></td><td>西之谷南</td><td class="num">129</td><td class="num">55.8%</td><td>竜洋雇用促進</td><td class="num">74</td><td class="num">4.1%</td></tr><tr><td></td><td>池田藤美 上町</td><td class="num">66</td><td class="num">54.5%</td><td>中島新町</td><td class="num">89</td><td class="num">4.5%</td></tr><tr><td></td><td>大平南</td><td class="num">63</td><td class="num">54.0%</td><td>中野東川原</td><td class="num">485</td><td class="num">6.2%</td></tr></tbody></table>
+<p class="note">注：人口の少ない町（100人未満42町・人口の1.6%）は、1〜2人の増減で率が大きく変動します。白寿園（109人・100%）と豊田一空園（29人・100%）は施設名のため上位から除外しています。</p>
+
+<h2>7. データから見える地域課題</h2>
+<div class="fact">
+<p><strong>1. 高齢化が進行している</strong><br>高齢化率は2007年19.1%から2022年28.9%へ+9.8ポイント。65歳以上人口は+14,775人（+43.8%）増加しました。</p>
+</div>
+<div class="fact">
+<p><strong>2. 若い世代が減っている</strong><br>0〜14歳は-3,534人（-14.2%）、30〜34歳は-4,849人（-35.3%）減少。生産年齢人口（15〜64歳）は-19,986人（-17.0%）と大きく減っています。</p>
+</div>
+<div class="fact">
+<p><strong>3. 地域によって高齢化の程度が異なる</strong><br>町別高齢化率は0.0%〜59.6%（施設除く）。30%以上の町は199町で人口の43.9%を占めます。</p>
+</div>
+<div class="fact">
+<p><strong>4. 人口減少は広い範囲で起きている</strong><br>3年共通281町のうち210町が減少。減少した210町の2021年人口は99,503人で、281町合計（153,831人）の64.7%を占めます。</p>
+</div>
+<div class="limitation">
+<p><strong>考察の限界</strong><br>全国平均・他市との比較は行っていません（比較値の出典がないため）。人口密度・将来人口推計・メッシュ別高齢者人口はデータがないため掲載しません。町名変更・統合のため、時系列比較は281町に限定しています。</p>
+</div>
+
+<h2>8. 分析方法・データ出典・注意事項</h2>
+<h3>計算方法</h3>
+<ul>
+<li><strong>高齢化率</strong>：65歳以上人口 ÷ 総人口 × 100</li>
+<li><strong>増減率</strong>：（比較年 − 基準年） ÷ 基準年 × 100</li>
+<li><strong>15〜64歳</strong>：総人口 − 0〜14歳 − 65歳以上（計算値）</li>
+<li><strong>人口加重の高齢化率</strong>：町別65歳以上人口の合計 ÷ 町別人口の合計</li>
+</ul>
+
+<h3>データ出典</h3>
+<div class="source-box">
+<h4>出典・ライセンス</h4>
+<ul>
+<li><strong>年齢別人口（2007年・2021年、各3月31日）</strong><br>出典：磐田市（LinkData rdf1s2622i）、CC BY 3.0</li>
+<li><strong>地域・年齢別人口（2022年3月31日）</strong><br>出典：静岡県オープンデータ（磐田市）、CC BY 3.0</li>
+<li><strong>町別人口（2010・2015・2021年、各3月31日）</strong><br>出典：磐田市（LinkData）、CC BY 3.0</li>
+</ul>
+</div>
+
+<h3>データの取扱いについて</h3>
+<ol>
+<li>2007年・2021年（国勢調査系）と2022年（住民基本台帳系）は口径が異なる可能性があります。</li>
+<li>町名の変更・統合により、時系列比較は3年共通の281町に限定しています。</li>
+<li>施設名である白寿園・豊田一空園は、居住地区の比較から除外しています。</li>
+<li>人口の少ない町（100人未満42町）は、1〜2人の増減で率が大きく変動します。</li>
+<li>5歳階級の「85歳以上」には100歳以上を含みます。</li>
+<li>メッシュ人口（166,672人）と町別人口（167,663人）は約991人の差があります（基準年と集計源の違い）。本ページは町別人口を基準にしています。</li>
+<li>外国人人口の2022年値・人口密度・将来人口推計・メッシュ別65歳以上人口はデータがないため掲載しません。</li>
+<li>全国平均・他市との比較は未実施（比較値の出典がないため）。</li>
+</ol>
+
+<div class="source-box">
+<h4>更新履歴</h4>
+<p>2026-11-10：テーマ2「人口構造分析」レポート v2 に基づきホームページ掲載用ページを作成。</p>
+</div>
+
+<p><a href="../index.html">分析サイト入口へ</a> ／ <a href="https://kaopuuu-hash.github.io/secret-base/data.html">地域データ置き場（管理人のサイト）</a></p>
+
+</div>
+
+<!-- theme-nav -->
+<nav style="margin-top:32px;padding-top:12px;border-top:1px solid #ccc;font-size:14px;"><a href="../theme01/index.html">&larr; 前のテーマ: 施設・人口</a> ｜ <a href="../theme03/index.html">次のテーマ: 製造業 &rarr;</a> ｜ <a href="../index.html">入口へ戻る</a></nav>
+</body>
+</html>

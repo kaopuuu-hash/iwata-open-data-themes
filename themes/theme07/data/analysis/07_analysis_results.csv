@@ -1,0 +1,7 @@
+﻿theme_id,theme_name,formula_id,formula_name,value,unit,data_source,calculation_condition,notes,status
+07,商業・買い物,F034,店舗密度,2.551239,店/km2,iwata_food_stores_consolidated.csv / 面積,店舗数 / 対象面積,,計算済
+07,商業・買い物,F035,人口当たり店舗数,2.50192,店/千人,iwata_food_stores_consolidated.csv / 人口,店舗数 / 人口 * 1000,,計算済
+07,商業・買い物,F036,店舗当たり人口,399.693046,人/店,人口 / 店舗数,P / 店舗数,店舗0は未定義,計算済
+07,商業・買い物,F037,最近隣距離（平均）,0.001622,座標単位,iwata_food_stores_consolidated.csv 座標,d_i = min_j 距離 の平均,直線距離,計算済
+07,商業・買い物,F038,平均店舗距離,0.001622,座標単位,iwata_food_stores_consolidated.csv 座標,(1/n) Σ d_i,店舗配置の粗密,計算済
+07,商業・買い物,F039,商業集積度（最大）,12.222222,%,iwata_shopping_town_summary.csv,対象地域店舗数 / 全市店舗数 * 100,商圏の偏在,計算済

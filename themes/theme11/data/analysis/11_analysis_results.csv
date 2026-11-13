@@ -1,0 +1,5 @@
+﻿theme_id,theme_name,formula_id,formula_name,value,unit,data_source,calculation_condition,notes,status
+11,災害リスク,F016,人口密度,1019.71245,人/km2,iwata_disaster_mesh.geojson / census面積,人口 / 面積 (暴露の分母),メッシュ体系の確認要,計算済
+11,災害リスク,F066,避難所密度,0.948302,か所/km2,theme12 p1_evacuation_space.csv / 面積,避難所数 / 対象面積,,計算済
+11,災害リスク,F067,避難所当たり人口,1075.303226,人/か所,人口 / 避難所数,対象人口 / 避難所数,避難所0は未定義,計算済
+11,災害リスク,F072,面積比率（ハザード区域）,46.363636,%,iwata_disaster_mesh.geojson,ハザード区域メッシュ数 / 全メッシュ数 * 100,座標系で面積計算要,計算済

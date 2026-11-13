@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>磐田市オープンデータ ダッシュボード v2（データ駆動版）</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{--bg:#0a1628;--panel:#0f1d32;--card:#162440;--cyan:#00d4ff;--txt:#e2e8f0;--mut:#94a3b8;--line:#1e3a5f;--warn:#f59e0b;--ok:#22c55e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Yu Gothic',sans-serif;background:var(--bg);color:var(--txt);font-size:13px}
+header{background:var(--panel);border-bottom:1px solid var(--line);padding:10px 16px}
+header h1{font-size:15px;color:var(--cyan)}
+header .meta{font-size:11px;color:var(--mut)}
+#err{display:none;background:#3a1010;color:#ffb4b4;padding:8px 16px;font-size:12px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;padding:10px 16px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px;text-align:center}
+.kpi .v{font-size:18px;font-weight:700;color:var(--cyan)}
+.kpi .l{font-size:10px;color:var(--mut)}
+.main{display:grid;grid-template-columns:1.2fr 1fr;gap:10px;padding:0 16px}
+.mapbox{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;min-height:480px}
+.mapbox iframe{width:100%;height:480px;border:0}
+.charts{display:grid;gap:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:10px}
+.card h3{font-size:12px;color:var(--cyan);margin-bottom:6px}
+.chartbox{height:170px}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th,td{border:1px solid var(--line);padding:4px 6px;text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{background:var(--panel);color:var(--cyan)}
+.quality{display:flex;gap:6px;padding:10px 16px;flex-wrap:wrap}
+.q{flex:1;min-width:140px;text-align:center;padding:6px;border-radius:4px;font-size:11px}
+.q.ok{background:rgba(34,197,94,.15);color:var(--ok);border:1px solid rgba(34,197,94,.3)}
+.q.warn{background:rgba(245,158,11,.15);color:var(--warn);border:1px solid rgba(245,158,11,.3)}
+footer{padding:8px 16px;font-size:10px;color:var(--mut);border-top:1px solid var(--line)}
+@media(max-width:900px){.main{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><h1>磐田市オープンデータ ダッシュボード v2</h1><span class="meta">CSV/JSON読み込み版（HTTP経由で開くこと）／将来値は参考値</span></header>
+<div id="err"></div>
+<div class="kpis" id="kpis"></div>
+<div class="main">
+<div class="mapbox"><iframe src="iwata_gis_map_v2.html" title="GISマップ"></iframe></div>
+<div class="charts">
+<div class="card"><h3>人口・高齢化率の推移（timeseries.csv）</h3><div class="chartbox"><canvas id="cPop"></canvas></div></div>
+<div class="card"><h3>製造業の偏り：従業者シェア vs 事業所数シェア（manufacturing_by_industry.csv）</h3><div class="chartbox"><canvas id="cInd"></canvas></div></div>
+<div class="card"><h3>町別高齢化率の分布（town_aging.csv、325町）</h3><div class="chartbox"><canvas id="cAge"></canvas></div></div>
+</div>
+</div>
+<div class="quality">
+<div class="q ok">新：人口2022・バス停2022・医療2025・製造業2023</div>
+<div class="q warn">古：施設2016・公園2017・避難所2017・災害2017/18</div>
+<div class="q warn">未取得：対応表・定員・IPSS・衛星・道路</div>
+</div>
+<footer>出典：磐田市LinkData・静岡県オープンデータ・e-Stat・国土数値情報・気象庁。各値は theme*_v2 / _archive のCSVから取得。</footer>
+<script>
+function parseCSV(t){const L=t.trim().split(/\r?\n/);const h=L[0].split(',');return L.slice(1).filter(x=>x.trim()).map(r=>{const c=r.split(',');const o={};h.forEach((k,i)=>o[k.trim()]=(c[i]||'').trim());return o;});}
+function num(s){return parseFloat(String(s).replace(/[,"]/g,''))||0;}
+async function load(p){const r=await fetch(p);if(!r.ok)throw new Error(p+':'+r.status);return parseCSV(await r.text());}
+(async function(){
+try{
+const [ts,town,mfg,fac,med,park,bus,shel,tour,cult,proj] = await Promise.all([
+load('theme2_v2/timeseries.csv'),load('theme2_v2/town_aging.csv'),
+load('_archive/theme3/manufacturing_by_industry.csv'),load('theme1_v2/facilities_by_oaza.csv'),
+load('_archive/theme6/medical_institutions.csv'),load('_archive/theme10/parks.csv'),
+load('theme8_v2/bus_stops_v2.csv'),load('_archive/theme12/shelters.csv'),
+load('_archive/theme5/tourist_facilities.csv'),load('_archive/theme5/cultural_properties.csv'),
+load('theme14_v2/population_projection_v2.csv')]);
+const r2022 = ts.find(r=>r.year==='2022');
+const beds = med.reduce((a,x)=>a+num(x['病床数']),0);
+const parkArea = park.reduce((a,x)=>a+num(x.area_m2),0);
+const kpis = [
+[Number(r2022.total).toLocaleString(),'総人口 (2022)'],[r2022.aging_rate+'%','高齢化率 (2022)'],
+[mfg[0].employees?Number(num(mfg[0].employees)).toLocaleString():'-','製造業従業者'],
+[med.length+' / '+beds.toLocaleString(),'医療機関 / 病床'],
+[bus.length,'バス停 (2022)'],[park.length,'公園 / '+(parkArea/10000).toFixed(1)+'ha'],
+[fac.reduce((a,x)=>a+num(x.facility_count),0),'公共施設'],
+[shel.length,'避難所']];
+document.getElementById('kpis').innerHTML = kpis.map(k=>'<div class="kpi"><div class="v">'+k[0]+'</div><div class="l">'+k[1]+'</div></div>').join('');
+const py = ts.map(r=>r.year), pv = ts.map(r=>num(r.total)), av = ts.map(r=>num(r.aging_rate));
+py.push('2050(参考)'); pv.push(num(proj[proj.length-1]['Population'])); av.push(num(proj[proj.length-1]['Aging Rate']));
+new Chart(document.getElementById('cPop'),{type:'line',
+data:{labels:py,datasets:[
+{label:'総人口',data:pv,borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,.1)',fill:true,tension:.3,yAxisID:'y'},
+{label:'高齢化率%',data:av,borderColor:'#f59e0b',tension:.3,yAxisID:'y1'}]},
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#94a3b8',font:{size:10}}}},
+scales:{x:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}},
+y:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}},
+y1:{position:'right',ticks:{color:'#94a3b8',font:{size:9}},grid:{display:false}}}}});
+const tot_e = num(mfg[0].employees), tot_s = num(mfg[0].est_total);
+const subs = mfg.slice(1).filter(r=>r.code!=='00').sort((a,b)=>num(b.employees)-num(a.employees)).slice(0,7);
+new Chart(document.getElementById('cInd'),{type:'bar',
+data:{labels:subs.map(r=>r.name),datasets:[
+{label:'従業者%',data:subs.map(r=>+(num(r.employees)/tot_e*100).toFixed(1)),backgroundColor:'#00d4ff'},
+{label:'事業所%',data:subs.map(r=>+(num(r.est_total)/tot_s*100).toFixed(1)),backgroundColor:'#3b82f6'}]},
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#94a3b8',font:{size:10}}}},
+scales:{x:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}},
+y:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}}}}});
+const bins = Array(8).fill(0), labels = ['0-10','10-20','20-30','30-40','40-50','50-60','60-70','70+'];
+town.forEach(r=>{const a=num(r.aging_rate);bins[Math.min(7,Math.floor(a/10))]++;});
+new Chart(document.getElementById('cAge'),{type:'bar',
+data:{labels:labels,datasets:[{label:'町数',data:bins,backgroundColor:'#14b8a6'}]},
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+scales:{x:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}},
+y:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}}}}});
+}catch(e){document.getElementById('err').style.display='block';document.getElementById('err').textContent='データ読込エラー（HTTP経由で開いてください）: '+e.message;}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>磐田市 避難・孤立 分析</title>
+<style>
+body{font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;margin:0;padding:16px;background:#fafafa;color:#333;}
+.container{max-width:900px;margin:0 auto;}
+h1{font-size:24px;border-bottom:2px solid #333;padding-bottom:8px;}
+h2{font-size:20px;border-bottom:1px solid #999;padding-bottom:4px;margin-top:28px;}
+p{margin:8px 0;line-height:1.6;}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px;}
+th,td{border:1px solid #ccc;padding:6px 8px;text-align:left;}
+th{background:#f5f5f5;}
+.note{font-size:12px;color:#666;margin-top:16px;}
+</style>
+</head>
+<body>
+<div class="container">
+<nav style="margin-bottom:12px;font-size:14px;"><a href="../index.html">&larr; 入口へ</a></nav>
+
+<h1>磐田市 避難・孤立 分析</h1>
+<p>テーマID: 12 | 対象年度: 2020-2026 | 出典: 磐田市オープンデータ・e-Stat</p>
+<h2>分析概要</h2>
+<p># テーマ12: 避難・孤立リスク分析 レポート（v2・作り直し）<br>## 0. 問い・仮説（工程1）<br>- **問い**：避難所はどこにどれだけあり、1カ所あたり人口はどうか。<br>- **仮説**：避難所は中心部に集中し、郊外に空白がある。<br>- **検証方法**：避難所43件の座標をグリッド（255セル、T9/T11と同一範囲）上に数える。中心部・郊外の区分、到達可能性、孤立リスクの判定は行わない（地区定義・道路ネットワーク・収容能力データがないため）。<br>## 1. データ出典<br>| データ | 提供元 | 取得日 | 対象年度 | 利用条件 |<br>|---|---|---|---|---|<br>| 避難所一覧 | 磐田市（LinkData rdf1s3385i） | 2026-11-07 | 2017年 | CC BY 3.0 |<br>| 人口（分母） | 静岡県オープンデータ（2022-03-31、167,663人） | 2026-11-07 | 2022年 | CC BY 3.0 |<br>## 2. 分析結果<br>| 指標 | 値 |</p>
+<h2>分析結果（抜粋）</h2>
+<table><thead><tr><th>theme_id</th><th>theme_name</th><th>formula_id</th><th>formula_name</th><th>value</th><th>unit</th><th>data_source</th><th>calculation_condition</th><th>notes</th><th>status</th></tr></thead><tbody><tr><td>12</td><td>避難・孤立</td><td>F066</td><td>避難所密度</td><td>0.948302</td><td>か所/km2</td><td>p1_evacuation_space.csv / 面積</td><td>避難所数 / 対象面積</td><td></td><td>計算済</td></tr><tr><td>12</td><td>避難・孤立</td><td>F067</td><td>避難所当たり人口</td><td>1075.303226</td><td>人/か所</td><td>p1_evacuation_space.csv 想定収容人数 / 人口</td><td>対象人口 / 避難所数</td><td>155件分の想定収容人数あり</td><td>計算済</td></tr></tbody></table>
+<p class="note">出典: 12_analysis_results.csv。集計単位・対象年度は CSV を参照。人口等の二重計上は防止済み（個別町299行ベース）。</p>
+</div>
+
+<!-- theme-nav -->
+<nav style="margin-top:32px;padding-top:12px;border-top:1px solid #ccc;font-size:14px;"><a href="../theme11/index.html">&larr; 前のテーマ: 災害リスク・地域防災力 統合分析マップ</a> ｜ <a href="../theme13/index.html">次のテーマ: 土地利用・住宅 &rarr;</a> ｜ <a href="../index.html">入口へ戻る</a></nav>
+</body>
+</html>

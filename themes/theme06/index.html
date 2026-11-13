@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>磐田市 医療・福祉施設分析</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: #fafafa;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+  h1 {
+    font-size: 24px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 8px;
+    margin-top: 24px;
+  }
+  h2 {
+    font-size: 20px;
+    border-bottom: 1px solid #999;
+    padding-bottom: 4px;
+    margin-top: 28px;
+  }
+  h3 {
+    font-size: 17px;
+    margin-top: 20px;
+  }
+  p {
+    margin: 8px 0;
+  }
+  ul, ol {
+    margin: 8px 0 8px 24px;
+  }
+  li {
+    margin: 4px 0;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+    text-align: left;
+  }
+  th {
+    background: #f5f5f5;
+  }
+  td.num, th.num {
+    text-align: right;
+  }
+  .note {
+    font-size: 12px;
+    color: #666;
+    margin: 4px 0;
+  }
+  .source-box {
+    margin-top: 16px;
+    padding: 12px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 13px;
+  }
+  .source-box h4 {
+    margin: 0 0 6px;
+    font-size: 15px;
+  }
+  .source-box ul {
+    margin: 4px 0 4px 20px;
+  }
+  .source-box li {
+    margin: 3px 0;
+  }
+  .map-frame {
+    width: 100%;
+    height: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 12px 0;
+  }
+  .img-frame {
+    width: 100%;
+    max-width: 600px;
+    margin: 12px auto;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .highlight {
+    background: #fffde7;
+    padding: 12px;
+    border-left: 4px solid #fbc02d;
+    margin: 12px 0;
+  }
+  .fact {
+    margin: 8px 0;
+    padding: 8px;
+    background: #f9f9f9;
+    border-left: 3px solid #2196f3;
+  }
+  .limitation {
+    margin: 8px 0;
+    padding: 8px;
+    background: #ffeef0;
+    border-left: 3px solid #e57373;
+  }
+  @media (max-width: 600px) {
+    .container {
+      padding: 12px;
+    }
+    h1 {
+      font-size: 20px;
+    }
+    h2 {
+      font-size: 18px;
+    }
+    table {
+      font-size: 12px;
+    }
+    th, td {
+      padding: 4px 6px;
+    }
+    .map-frame {
+      height: 300px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<nav style="margin-bottom:12px;font-size:14px;"><a href="../index.html">&larr; 入口へ</a></nav>
+
+
+<h1>磐田市 医療・福祉施設分析</h1>
+
+<h2>1. 分析の目的</h2>
+<p>磐田市の医療・福祉サービスはどの程度あるか。種別構成はどうか。医療・介護施設の分布、人口との関係、地域別アクセス格差を分析する。</p>
+<p><strong>仮説</strong>：病院を中心に病床が集中し、介護サービスは居宅系が中心である。</p>
+<p><strong>検証方法</strong>：医療機関の種別・病床数を集計し、介護サービス事業所の種別内訳を整理する。全国比較・充足判定は行わない。</p>
+
+<h2>2. 磐田市の医療・福祉施設の現状</h2>
+<p>分母人口：167,663人（2022年3月31日現在、静岡県オープンデータ）</p>
+
+<h3>2.1 医療機関（206件）</h3>
+<table>
+<thead>
+<tr><th>種別</th><th class="num">件数</th><th class="num">人口1万人当たり</th><th class="num">病床数</th><th class="num">人口1万人当たり床数</th></tr>
+</thead>
+<tbody>
+<tr><td>病院</td><td class="num">9</td><td class="num">0.54件</td><td class="num">1,469</td><td class="num">87.62床</td></tr>
+<tr><td>有床診療所</td><td class="num">5</td><td class="num">0.30件</td><td class="num">61</td><td class="num">3.64床</td></tr>
+<tr><td>無床診療所</td><td class="num">192</td><td class="num">11.45件</td><td class="num">0</td><td class="num">0床</td></tr>
+<tr><td><strong>合計</strong></td><td class="num"><strong>206</strong></td><td class="num"><strong>12.29件</strong></td><td class="num"><strong>1,530</strong></td><td class="num"><strong>91.25床</strong></td></tr>
+</tbody>
+</table>
+<p class="note">病床のうち病院集中率：96.0%（1,469/1,530床が病院に集中）</p>
+<img src="maps/theme6_medical_types.png" alt="医療機関の種別別件数" class="img-frame">
+<p class="note">図：医療機関の種別別件数（無床診療所192、病院9、有床診療所5）</p>
+
+<h3>2.2 介護サービス事業者（152件）</h3>
+<table>
+<thead>
+<tr><th>サービス種別</th><th class="num">事業所数</th><th class="num">人口1万人当たり</th></tr>
+</thead>
+<tbody>
+<tr><td>居宅介護支援事業所</td><td class="num">43</td><td class="num">2.56件</td></tr>
+<tr><td>通所リハビリ（デイケア）</td><td class="num">40</td><td class="num">2.39件</td></tr>
+<tr><td>訪問介護（ホームヘルプ）</td><td class="num">17</td><td class="num">1.01件</td></tr>
+<tr><td>短期入所生活介護</td><td class="num">13</td><td class="num">0.78件</td></tr>
+<tr><td>特定施設入居者生活介護</td><td class="num">12</td><td class="num">0.72件</td></tr>
+<tr><td>通所介護（デイサービス）</td><td class="num">11</td><td class="num">0.66件</td></tr>
+<tr><td>介護老人福祉施設（特養）</td><td class="num">7</td><td class="num">0.42件</td></tr>
+<tr><td>福祉用具販売</td><td class="num">5</td><td class="num">0.30件</td></tr>
+<tr><td>福祉用具貸与</td><td class="num">4</td><td class="num">0.24件</td></tr>
+<tr><td><strong>合計</strong></td><td class="num"><strong>152</strong></td><td class="num"><strong>9.07件</strong></td></tr>
+</tbody>
+</table>
+<p class="note">診療科目は1機関が複数科目を持つため、科目別の機関数の合計は機関総数と一致しない。重複計上であることを明示する。</p>
+
+<h2>3. 医療機関の空間分布</h2>
+<p>医療機関206件を500m人口メッシュ（330メッシュ）に最寄りメッシュで割り当てた結果。</p>
+<table>
+<thead>
+<tr><th>項目</th><th class="num">値</th></tr>
+</thead>
+<tbody>
+<tr><td>施設ありメッシュ</td><td class="num">128件</td></tr>
+<tr><td>施設なしメッシュ（手法上）</td><td class="num">0件</td></tr>
+<tr><td>施設空白地域（人口あり）</td><td class="num">170メッシュ</td></tr>
+<tr><td>施設空白地域の対象人口</td><td class="num">75,664人</td></tr>
+<tr><td>メッシュ別施設数 最大</td><td class="num">6件（222110350）</td></tr>
+<tr><td>メッシュ別施設数 平均</td><td class="num">1.61件</td></tr>
+<tr><td>メッシュ別施設数 中央値</td><td class="num">1件</td></tr>
+</tbody>
+</table>
+
+<h3>施設集中地域 TOP5</h3>
+<ol>
+<li>222110350：人口353人、施設6件（無床5＋病院1）</li>
+<li>22211159015：人口1,448人、施設5件（無床5）</li>
+<li>222112130：人口895人、施設4件（無床4）</li>
+<li>222110160：人口380人、施設4件（無床4）</li>
+<li>22211068001：人口547人、施設4件（無床4）</li>
+</ol>
+<p class="note">「施設なしメッシュ0」は、各施設を最寄りメッシュ中心点に割り当てた手法上の結果。実質的な施設空白はセクション6（アクセス距離）で把握。</p>
+
+<h2>4. 介護サービスの分布</h2>
+<p>介護サービス事業者は居宅介護支援（43）と通所リハビリ（40）が多く、特養は7施設である。</p>
+<p class="note">介護サービスのグラフ画像は元データにないため掲載しない。医療機関の種別グラフは2.1に掲載。</p>
+
+<h2>5. 施設空白地域の可視化</h2>
+<p>医療機関から1,000m以上離れた人口あり地域は31メッシュ（人口8,077人）。これがアクセス上の課題地域に該当する。</p>
+<iframe class="map-frame" src="maps/theme6_map.html" title="磐田市 医療機関アクセス分析マップ"></iframe>
+<p class="note">地図上の赤色マーカーがアクセス課題地域（1,000m以上離れた人口あり地域）。グレーがその他のメッシュ。</p>
+
+<h2>6. アクセス距離の分析</h2>
+<p>各メッシュから最寄り医療機関までの直線距離をハバースイン公式で計算（地球半径 R=6,371km）。道路距離とは区別する。</p>
+<table>
+<thead>
+<tr><th>項目</th><th class="num">値</th></tr>
+</thead>
+<tbody>
+<tr><td>計算対象メッシュ</td><td class="num">330件</td></tr>
+<tr><td>人口1人以上メッシュ</td><td class="num">294件</td></tr>
+<tr><td>最短距離</td><td class="num">4.0m</td></tr>
+<tr><td>最長距離</td><td class="num">5,693.7m</td></tr>
+<tr><td>平均距離</td><td class="num">523.4m</td></tr>
+<tr><td>中央値距離</td><td class="num">344.6m</td></tr>
+<tr><td>1,000m以上メッシュ</td><td class="num">31件</td></tr>
+<tr><td>1,000m以上人口</td><td class="num">8,077人</td></tr>
+<tr><td>500m以上メッシュ</td><td class="num">109件</td></tr>
+<tr><td>500m以上人口</td><td class="num">54,023人</td></tr>
+</tbody>
+</table>
+
+<h3>距離分布（人口1人以上メッシュ）</h3>
+<table>
+<thead>
+<tr><th>距離区分</th><th class="num">メッシュ数</th><th class="num">人口</th></tr>
+</thead>
+<tbody>
+<tr><td>0–500m</td><td class="num">185</td><td class="num">112,649人</td></tr>
+<tr><td>500–1,000m</td><td class="num">78</td><td class="num">45,946人</td></tr>
+<tr><td>1,000–2,000m</td><td class="num">23</td><td class="num">7,389人</td></tr>
+<tr><td>2,000–3,000m</td><td class="num">5</td><td class="num">563人</td></tr>
+<tr><td>3,000–5,000m</td><td class="num">2</td><td class="num">75人</td></tr>
+<tr><td>5,000m以上</td><td class="num">1</td><td class="num">50人</td></tr>
+</tbody>
+</table>
+
+<h2>7. データから見える地域課題</h2>
+<div class="fact">
+<p><strong>1. 医療機関から遠い地域がある</strong><br>医療機関から1,000m以上離れた人口ありメッシュは31件（人口8,077人）。最長距離は5,693.7m。</p>
+</div>
+<div class="fact">
+<p><strong>2. 病床が病院に集中している</strong><br>病床1,530床のうち1,469床（96.0%）が病院に集中する。無床診療所は192件あるが病床は0床。</p>
+</div>
+<div class="fact">
+<p><strong>3. 介護サービスは居宅系が中心</strong><br>介護サービス152件のうち居宅介護支援（43）と通所リハビリ（40）が多い。特養は7施設。</p>
+</div>
+<div class="limitation">
+<p><strong>考察の限界</strong><br>施設が足りているかどうかは判定できない（利用者数・定員稼働率のデータなし）。また、距離は直線距離であり、実際の道路距離とは異なる。</p>
+</div>
+
+<h2>8. 分析方法・データ出典・注意事項</h2>
+<h3>計算方法</h3>
+<ul>
+<li><strong>人口1万人当たり施設数</strong>：R = N / P × 10,000（N：施設数、P：人口）</li>
+<li><strong>直線距離</strong>：ハバースイン公式（a = sin²(Δφ/2) + cos φ₁ cos φ₂ sin²(Δλ/2)、d = 2Rₑ arcsin(√a)、Rₑ = 6,371 km）</li>
+</ul>
+
+<h3>データ出典</h3>
+<div class="source-box">
+<h4>出典・ライセンス</h4>
+<ul>
+<li><strong>医療機関一覧（2025年4月1日現在）</strong><br>出典: 静岡県オープンデータカタログ（https://opendata.pref.shizuoka.jp/dataset/10681.html）、CC BY 3.0<br>座標: 国土地理院 住所検索API（https://msearch.gsi.go.jp/address-search/AddressSearch）で付与（206/206取得）</li>
+<li><strong>介護サービス事業者一覧</strong><br>出典: 磐田市（LinkData）、CC BY 3.0（対象年度：2024年）</li>
+<li><strong>人口（分母：167,663人）</strong><br>出典: 静岡県オープンデータ（2022年3月31日現在）、CC BY 3.0</li>
+<li><strong>人口メッシュ（166,672人）</strong><br>出典: 総務省 統計局 e-Stat 統計地理情報システム（2020年国勢調査、500mメッシュ）、政府統計の利用規約</li>
+<li><strong>地図タイル</strong>: © OpenStreetMap contributors (ODbL)、Leaflet: BSD 2-Clause</li>
+</ul>
+</div>
+
+<h3>データの取扱いについて</h3>
+<ol>
+<li>距離は直線距離（ハバースイン公式）であり、実際の道路距離とは異なります。</li>
+<li>座標は国土地理院住所検索APIで住所から取得した値です。番地レベルで誤差がある場合があります。</li>
+<li>取得時期が異なります（医療：2025年4月、介護：2024年、人口：2022年、人口メッシュ：2020年国勢調査）。</li>
+<li>医療機関の種別・診療科目・病床数は公開台帳の登録値です。実際の受診可否は各医療機関にご確認ください。</li>
+<li>アクセス困難の閾値1,000mは分析上の目安です。「受診困難」との評価語は使用していません。</li>
+<li>人口167,663人（市全体人口統計）と166,672人（メッシュ単位空間分析人口）の差は991人（基準年と集計源の違い）。用途に応じて使い分ける。</li>
+<li>介護サービスの定員・利用者数は未取得。施設が足りているかどうかは判定できない。</li>
+<li>診療科目の表記ゆれ（「ひ」「こう」「ぺ内」「ぺ外」「気」「胃」等）は分類不能のまま。要確認。</li>
+</ol>
+
+<div class="source-box">
+<h4>更新履歴</h4>
+<p>2026-11-10：テーマ6「医療・福祉施設分析」レポート v3 に基づきホームページ掲載用ページを作成。</p>
+</div>
+
+</div>
+
+<p style="margin-top:16px;font-size:14px;">レポート・深掘り版は <a href="https://kaopuuu-hash.github.io/iwata-open-data-analysis/">分析サイト（レポート・深掘り版）入口</a> からご覧いただけます。</p>
+<!-- theme-nav -->
+<nav style="margin-top:32px;padding-top:12px;border-top:1px solid #ccc;font-size:14px;"><a href="../theme05/index.html">&larr; 前のテーマ: 文化・観光</a> ｜ <a href="../theme07/index.html">次のテーマ: 買い物アクセス困難地域マップ &rarr;</a> ｜ <a href="../index.html">入口へ戻る</a></nav>
+</body>
+</html>
