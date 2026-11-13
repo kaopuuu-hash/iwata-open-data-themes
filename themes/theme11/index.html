@@ -68,10 +68,19 @@
             border-top: 1px solid #ddd;
             padding-top: 10px;
         }
+        @media (max-width: 640px) {
+            #map { height: 400px; }
+            .info-panel, .stats-panel {
+                position: static;
+                max-width: none;
+                margin: 10px;
+                box-shadow: 0 0 8px rgba(0,0,0,0.15);
+            }
+        }
     </style>
 </head>
 <body>
-<nav style="margin-bottom:12px;font-size:14px;"><a href="../index.html">&larr; 入口へ</a></nav>
+<nav style="margin-bottom:12px;font-size:14px;"><a href="../../index.html">&larr; 入口へ</a></nav>
 
     <div id="map"></div>
 
@@ -137,93 +146,75 @@
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // GeoJSONデータの読み込み
-        var floodLayer = L.geoJSON(null, {
-            style: { color: '#ffcc00', weight: 1, fillOpacity: 0.4 },
-            onEachFeature: function(feature, layer) {
-                var props = feature.properties;
-                var popupContent = '<strong>メッシュコード:</strong> ' + props.mesh_code + '<br>' +
-                                   '<strong>総人口:</strong> ' + props.total_pop.toLocaleString() + ' 人<br>' +
-                                   '<strong>災害リスク:</strong> 洪水<br>';
-                layer.bindPopup(popupContent);
-            }
-        });
+        // ハザード定義（凡例の色分けに対応）
+        var HAZARDS = {
+            flood:     { flag: 'flood_risk',     color: '#ffcc00', name: '洪水' },
+            landslide: { flag: 'landslide_risk', color: '#ff9900', name: '土砂災害' },
+            tsunami:   { flag: 'tsunami_risk',   color: '#ff6600', name: '津波' }
+        };
+        var COMPOSITE_COLOR = '#ff0000';
 
-        var landslideLayer = L.geoJSON(null, {
-            style: { color: '#ff9900', weight: 1, fillOpacity: 0.4 },
-            onEachFeature: function(feature, layer) {
-                var props = feature.properties;
-                var popupContent = '<strong>メッシュコード:</strong> ' + props.mesh_code + '<br>' +
-                                   '<strong>総人口:</strong> ' + props.total_pop.toLocaleString() + ' 人<br>' +
-                                   '<strong>災害リスク:</strong> 土砂災害<br>';
-                layer.bindPopup(popupContent);
-            }
-        });
+        // 複合リスク（2種類以上）は赤、それ以外はそのハザードの色
+        function riskStyle(hazardKey) {
+            return function(feature) {
+                var color = (feature.properties.risk_count >= 2) ? COMPOSITE_COLOR : HAZARDS[hazardKey].color;
+                return { color: color, weight: 1, fillColor: color, fillOpacity: 0.4 };
+            };
+        }
 
-        var tsunamiLayer = L.geoJSON(null, {
-            style: { color: '#ff6600', weight: 1, fillOpacity: 0.4 },
-            onEachFeature: function(feature, layer) {
+        function riskPopup(hazardKey) {
+            return function(feature, layer) {
                 var props = feature.properties;
+                var names = [HAZARDS[hazardKey].name];
+                if (props.risk_types) {
+                    names = props.risk_types.split(',').map(function(t) {
+                        return HAZARDS[t] ? HAZARDS[t].name : t;
+                    });
+                }
                 var popupContent = '<strong>メッシュコード:</strong> ' + props.mesh_code + '<br>' +
                                    '<strong>総人口:</strong> ' + props.total_pop.toLocaleString() + ' 人<br>' +
-                                   '<strong>災害リスク:</strong> 津波<br>';
+                                   '<strong>災害リスク:</strong> ' + names.join('・') + '<br>';
                 layer.bindPopup(popupContent);
-            }
-        });
+            };
+        }
+
+        // ハザード別レイヤー（地物はレイヤーごとに独立生成するので、
+        // 複合メッシュは片方のチェックを外しても、もう片方がONなら表示されたままになる）
+        var riskLayers = { flood: null, landslide: null, tsunami: null };
 
         // GeoJSONデータの読み込み
         fetch('iwata_disaster_mesh.geojson')
             .then(response => response.json())
             .then(data => {
                 console.log('GeoJSON loaded:', data.features.length, 'features');
-                
-                floodLayer.clearLayers();
-                landslideLayer.clearLayers();
-                tsunamiLayer.clearLayers();
-
-                data.features.forEach(function(feature) {
-                    var props = feature.properties;
-                    var featureLayer = L.geoJSON(feature, {
-                        style: {
-                            color: '#999',
-                            weight: 1,
-                            fillOpacity: 0.3
-                        }
+                Object.keys(HAZARDS).forEach(function(key) {
+                    riskLayers[key] = L.geoJSON(data, {
+                        filter: function(feature) { return feature.properties[HAZARDS[key].flag] === 1; },
+                        style: riskStyle(key),
+                        onEachFeature: riskPopup(key)
                     });
-
-                    if (props.flood_risk === 1) {
-                        floodLayer.addLayer(featureLayer);
-                    }
-                    if (props.landslide_risk === 1) {
-                        landslideLayer.addLayer(featureLayer);
-                    }
-                    if (props.tsunami_risk === 1) {
-                        tsunamiLayer.addLayer(featureLayer);
-                    }
                 });
 
-                map.addLayer(floodLayer);
-                map.addLayer(landslideLayer);
+                map.addLayer(riskLayers.flood);
+                map.addLayer(riskLayers.landslide);
             })
             .catch(error => console.error('Error loading GeoJSON:', error));
 
         // レイヤー切り替えイベント
-        document.getElementById('layer-flood').addEventListener('change', function() {
-            if (this.checked) map.addLayer(floodLayer);
-            else map.removeLayer(floodLayer);
-        });
-        document.getElementById('layer-landslide').addEventListener('change', function() {
-            if (this.checked) map.addLayer(landslideLayer);
-            else map.removeLayer(landslideLayer);
-        });
-        document.getElementById('layer-tsunami').addEventListener('change', function() {
-            if (this.checked) map.addLayer(tsunamiLayer);
-            else map.removeLayer(tsunamiLayer);
-        });
+        function toggleLayer(key) {
+            return function() {
+                if (!riskLayers[key]) return;
+                if (this.checked) map.addLayer(riskLayers[key]);
+                else map.removeLayer(riskLayers[key]);
+            };
+        }
+        document.getElementById('layer-flood').addEventListener('change', toggleLayer('flood'));
+        document.getElementById('layer-landslide').addEventListener('change', toggleLayer('landslide'));
+        document.getElementById('layer-tsunami').addEventListener('change', toggleLayer('tsunami'));
     </script>
 
 <p style="margin-top:16px;font-size:14px;">レポート・深掘り版は <a href="https://kaopuuu-hash.github.io/iwata-open-data-analysis/">分析サイト（レポート・深掘り版）入口</a> からご覧いただけます。</p>
 <!-- theme-nav -->
-<nav style="margin-top:32px;padding-top:12px;border-top:1px solid #ccc;font-size:14px;"><a href="../theme10/index.html">&larr; 前のテーマ: 公園・緑地</a> ｜ <a href="../theme12/index.html">次のテーマ: 避難・孤立 &rarr;</a> ｜ <a href="../index.html">入口へ戻る</a></nav>
+<nav style="margin-top:32px;padding-top:12px;border-top:1px solid #ccc;font-size:14px;"><a href="../theme10/index.html">&larr; 前のテーマ: 公園・緑地</a> ｜ <a href="../theme12/index.html">次のテーマ: 避難・孤立 &rarr;</a> ｜ <a href="../../index.html">入口へ戻る</a></nav>
 </body>
 </html>
