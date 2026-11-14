@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>磐田市 公共交通 分析</title>
+<title>仮想街いわた 公共交通 分析</title>
 <style>
 body{font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;margin:0;padding:16px;background:#fafafa;color:#333;}
 .container{max-width:900px;margin:0 auto;}
@@ -20,10 +20,10 @@ th{background:#f5f5f5;}
 <div class="container">
 <nav style="margin-bottom:12px;font-size:14px;"><a href="../../index.html">&larr; 入口へ</a></nav>
 
-<h1>磐田市 公共交通 分析</h1>
-<p>テーマID: 08 | 対象年度: 2020-2026 | 出典: 磐田市オープンデータ・e-Stat</p>
+<h1>仮想街いわた 公共交通 分析</h1>
+<p>テーマID: 08 | 対象年度: 2020-2026 | 出典: 公開オープンデータ・e-Stat</p>
 <h2>分析概要</h2>
-<p># テーマ8: 公共交通アクセス分析 レポート（v2・作り直し）<br>## 0. 問い・仮説（工程1）<br>- **問い**：磐田市のバス停はどこに分布し、人口当たりどの程度あるか。<br>- **仮説**：バス停は中心部に集中し、郊外は疎である。<br>- **検証方法**：国土数値情報バス停留所データv3.0（2022年）の磐田市エリア内件数を数え、人口当たりを算出する。中心部・郊外の区分別集計は行わない（地区定義がないため）。到達圏分析は行わない（道路ネットワーク未取得のため）。<br>## 1. データ出典<br>| データ | 提供元 | 取得日 | 対象年度 | 利用条件 |<br>|---|---|---|---|---|<br>| バス停留所データ v3.0 | 国土数値情報（国交省） | 2026-11-07 | 令和4年度（2022年） | オープンデータ |<br>| 鉄道データ（N02-22） | 国土数値情報（国交省） | 2026-11-11 | 2022年 | オープンデータ |<br>| 人口（分母） | 静岡県オープンデータ（2022-03-31、167,663人） | 2026-11-07 | 2022年 | CC BY 3.0 |<br>## 2. 分析結果</p>
+<p># テーマ8: 公共交通アクセス分析 レポート（v2・作り直し）<br>## 0. 問い・仮説（工程1）<br>- **問い**：仮想街いわたのバス停はどこに分布し、人口当たりどの程度あるか。<br>- **仮説**：バス停は中心部に集中し、郊外は疎である。<br>- **検証方法**：国土数値情報バス停留所データv3.0（2022年）の仮想街いわたエリア内件数を数え、人口当たりを算出する。中心部・郊外の区分別集計は行わない（地区定義がないため）。到達圏分析は行わない（道路ネットワーク未取得のため）。<br>## 1. データ出典<br>| データ | 提供元 | 取得日 | 対象年度 | 利用条件 |<br>|---|---|---|---|---|<br>| バス停留所データ v3.0 | 国土数値情報（国交省） | 2026-11-07 | 令和4年度（2022年） | オープンデータ |<br>| 鉄道データ（N02-22） | 国土数値情報（国交省） | 2026-11-11 | 2022年 | オープンデータ |<br>| 人口（分母） | 静岡県オープンデータ（2022-03-31、167,663人） | 2026-11-07 | 2022年 | CC BY 3.0 |<br>## 2. 分析結果</p>
 <h2>分析結果（抜粋）</h2>
 <table><thead><tr><th>theme_id</th><th>theme_name</th><th>formula_id</th><th>formula_name</th><th>value</th><th>unit</th><th>data_source</th><th>calculation_condition</th><th>notes</th><th>status</th></tr></thead><tbody><tr><td>08</td><td>公共交通</td><td>F057</td><td>バス停密度</td><td>2.45335</td><td>か所/km2</td><td>bus_stops_v2.csv / 面積</td><td>バス停数 / 対象面積</td><td></td><td>計算済</td></tr><tr><td>08</td><td>公共交通</td><td>F071</td><td>ユークリッド距離（バス停間平均）</td><td>0.074041</td><td>座標単位</td><td>bus_stops_v2.csv 座標</td><td>d_ij = sqrt((xi-xj)^2 + (yi-yj)^2)</td><td></td><td>計算済</td></tr></tbody></table>
 <p class="note">出典: 08_analysis_results.csv。集計単位・対象年度は CSV を参照。人口等の二重計上は防止済み（個別町299行ベース）。</p>

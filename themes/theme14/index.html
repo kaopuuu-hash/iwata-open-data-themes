@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>磐田市 施設・将来負担 分析</title>
+<title>仮想街いわた 施設・将来負担 分析</title>
 <style>
 body{font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;margin:0;padding:16px;background:#fafafa;color:#333;}
 .container{max-width:900px;margin:0 auto;}
@@ -20,10 +20,10 @@ th{background:#f5f5f5;}
 <div class="container">
 <nav style="margin-bottom:12px;font-size:14px;"><a href="../../index.html">&larr; 入口へ</a></nav>
 
-<h1>磐田市 施設・将来負担 分析</h1>
-<p>テーマID: 14 | 対象年度: 2020-2026 | 出典: 磐田市オープンデータ・e-Stat</p>
+<h1>仮想街いわた 施設・将来負担 分析</h1>
+<p>テーマID: 14 | 対象年度: 2020-2026 | 出典: 公開オープンデータ・e-Stat</p>
 <h2>分析概要</h2>
-<p># テーマ14: 公共施設の将来負担分析 レポート（v2・作り直し）<br>## 0. 問い・仮説（工程1）<br>- **問い**：2007-2022年のトレンドを線形外挿すると人口・高齢化率はどう推移するか。<br>- **仮説**：人口は緩やかに減少し、高齢化率は上昇を続ける。<br>- **検証方法**：2007/2010/2015/2021/2022年の総人口に直線回帰を当てはめ、2025-2050年を外挿する。高齢化率は2007年と2022年の2点で外挿する。これは予測ではなく、トレンド継続の仮定に基づく参考値である。<br>## 1. データ出典<br>| データ | 提供元 | 取得日 | 対象年度 | 利用条件 |<br>|---|---|---|---|---|<br>| 町別人口（2007/2010/2015/2021） | 磐田市（LinkData） | 2026-11-07 | 各年3/31 | CC BY 3.0 |<br>| 地域・年齢別人口 | 静岡県オープンデータ（2022-03-31） | 2026-11-07 | 2022年 | CC BY 3.0 |<br>## 2. 分析結果（参考値）<br>| 年度 | 推計人口 | 年少人口 | 高齢者人口 | 高齢化率 |</p>
+<p># テーマ14: 公共施設の将来負担分析 レポート（v2・作り直し）<br>## 0. 問い・仮説（工程1）<br>- **問い**：2007-2022年のトレンドを線形外挿すると人口・高齢化率はどう推移するか。<br>- **仮説**：人口は緩やかに減少し、高齢化率は上昇を続ける。<br>- **検証方法**：2007/2010/2015/2021/2022年の総人口に直線回帰を当てはめ、2025-2050年を外挿する。高齢化率は2007年と2022年の2点で外挿する。これは予測ではなく、トレンド継続の仮定に基づく参考値である。<br>## 1. データ出典<br>| データ | 提供元 | 取得日 | 対象年度 | 利用条件 |<br>|---|---|---|---|---|<br>| 町別人口（2007/2010/2015/2021） | 公開オープンデータ | 2026-11-07 | 各年3/31 | CC BY 3.0 |<br>| 地域・年齢別人口 | 静岡県オープンデータ（2022-03-31） | 2026-11-07 | 2022年 | CC BY 3.0 |<br>## 2. 分析結果（参考値）<br>| 年度 | 推計人口 | 年少人口 | 高齢者人口 | 高齢化率 |</p>
 <h2>分析結果（抜粋）</h2>
 <table><thead><tr><th>theme_id</th><th>theme_name</th><th>formula_id</th><th>formula_name</th><th>value</th><th>unit</th><th>data_source</th><th>calculation_condition</th><th>notes</th><th>status</th></tr></thead><tbody><tr><td>14</td><td>公共施設の将来負担</td><td>F001</td><td>合計</td><td>135</td><td>件</td><td>p1_kihon_shisetsu.csv</td><td>施設データの合計</td><td></td><td>計算済</td></tr><tr><td>14</td><td>公共施設の将来負担</td><td>F002</td><td>算術平均（延床面積）</td><td>3181.05593</td><td>m2</td><td>p1_tatemono.csv</td><td>施設データの平均</td><td></td><td>計算済</td></tr><tr><td>14</td><td>公共施設の将来負担</td><td>F014</td><td>人口増減率</td><td>-8.50199</td><td>%</td><td>population_projection_v2.csv</td><td>(P_t - P_t-1)/P_t-1 * 100 (端点)</td><td>P_t-1 &gt; 0</td><td>計算済</td></tr><tr><td>14</td><td>公共施設の将来負担</td><td>F015</td><td>年平均人口増減率（CAGR）</td><td>-0.354781</td><td>%</td><td>population_projection_v2.csv</td><td>(P_t / P_0)^(1/n) - 1 * 100</td><td>P_0 &gt; 0, n &gt; 0</td><td>計算済</td></tr><tr><td>14</td><td>公共施設の将来負担</td><td>F085</td><td>決定係数</td><td>1.0</td><td>無次元(0-1)</td><td>population_projection_v2.csv</td><td>R^2 = 1 - Σ(y-ŷ)^2 / Σ(y-ȳ)^2 (単回帰)</td><td>外挿の説明力</td><td>計算済</td></tr></tbody></table>
 <p class="note">出典: 14_analysis_results.csv。集計単位・対象年度は CSV を参照。人口等の二重計上は防止済み（個別町299行ベース）。</p>

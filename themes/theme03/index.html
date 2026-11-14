@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>磐田市 製造業 分析</title>
+<title>仮想街いわた 製造業 分析</title>
 <style>
 body{font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;margin:0;padding:16px;background:#fafafa;color:#333;}
 .container{max-width:900px;margin:0 auto;}
@@ -20,10 +20,10 @@ th{background:#f5f5f5;}
 <div class="container">
 <nav style="margin-bottom:12px;font-size:14px;"><a href="../../index.html">&larr; 入口へ</a></nav>
 
-<h1>磐田市 製造業 分析</h1>
-<p>テーマID: 03 | 対象年度: 2020-2026 | 出典: 磐田市オープンデータ・e-Stat</p>
+<h1>仮想街いわた 製造業 分析</h1>
+<p>テーマID: 03 | 対象年度: 2020-2026 | 出典: 公開オープンデータ・e-Stat</p>
 <h2>分析概要</h2>
-<p># テーマ3: 製造業・産業構造 レポート（v2・作り直し）<br>## 0. 問い・仮説（工程1）<br>- **問い**：磐田市の製造業はどの産業に偏っているか。その偏りは雇用と事業所数の両面で一致するか。<br>- **仮説**：輸送用機械器具製造業に偏り、雇用・事業所の両面で支配的である。<br>- **検証方法**：2024年経済構造実態調査（2023年実績）の産業中分類別に、従業者シェアと事業所数シェアを算出して比較する。全国比較は行わない（比較値の出典未取得のため）。<br>## 1. データ出典<br>| データ | 提供元 | 取得日 | 対象年度 | 利用条件 |<br>|---|---|---|---|---|<br>| 2024年経済構造実態調査 製造業事業所調査（地域別統計表） | e-Stat（経済産業省、statInfId 000040312314） | 2026-11-07 | 2023年 | 政府統計 |<br>**基準**：磐田市（22211）、全22中分類。個人経営を含まない。従業者4人以下の詳細は非公表（マスク）。<br>## 2. 分析結果<br>### 2.1 製造業全体</p>
+<p># テーマ3: 製造業・産業構造 レポート（v2・作り直し）<br>## 0. 問い・仮説（工程1）<br>- **問い**：仮想街いわたの製造業はどの産業に偏っているか。その偏りは雇用と事業所数の両面で一致するか。<br>- **仮説**：輸送用機械器具製造業に偏り、雇用・事業所の両面で支配的である。<br>- **検証方法**：2024年経済構造実態調査（2023年実績）の産業中分類別に、従業者シェアと事業所数シェアを算出して比較する。全国比較は行わない（比較値の出典未取得のため）。<br>## 1. データ出典<br>| データ | 提供元 | 取得日 | 対象年度 | 利用条件 |<br>|---|---|---|---|---|<br>| 2024年経済構造実態調査 製造業事業所調査（地域別統計表） | e-Stat（経済産業省、statInfId 000040312314） | 2026-11-07 | 2023年 | 政府統計 |<br>**基準**：仮想街いわた（22211）、全22中分類。個人経営を含まない。従業者4人以下の詳細は非公表（マスク）。<br>## 2. 分析結果<br>### 2.1 製造業全体</p>
 <h2>分析結果（抜粋）</h2>
 <table><thead><tr><th>theme_id</th><th>theme_name</th><th>formula_id</th><th>formula_name</th><th>value</th><th>unit</th><th>data_source</th><th>calculation_condition</th><th>notes</th><th>status</th></tr></thead><tbody><tr><td>03</td><td>製造業・産業構造</td><td>F001</td><td>合計</td><td>82775</td><td>人</td><td>p1_all_industry.csv</td><td>従業者数の合計（総数行の値を使用）</td><td>修正済み（重複集計行を除外）</td><td>計算済</td></tr><tr><td>03</td><td>製造業・産業構造</td><td>F002</td><td>算術平均</td><td>4869.117647058823</td><td>人/業種</td><td>p1_all_industry.csv</td><td>従業者数の平均（業種17種）</td><td>修正済み</td><td>計算済</td></tr><tr><td>03</td><td>製造業・産業構造</td><td>F006</td><td>分散（母分散）</td><td>71810504.10380623</td><td>人^2</td><td>p1_all_industry.csv</td><td>母分散（n割る）</td><td>修正済み</td><td>計算済</td></tr><tr><td>03</td><td>製造業・産業構造</td><td>F029</td><td>事業所当たり従業者数</td><td>13.805036691127418</td><td>人/事業所</td><td>p1_all_industry.csv</td><td>E / B</td><td>修正済み</td><td>計算済</td></tr><tr><td>03</td><td>製造業・産業構造</td><td>F025</td><td>産業構成比（A～B 農林漁業）</td><td>0.3938387194201148</td><td>%</td><td>p1_all_industry.csv</td><td>E_i / E_total * 100</td><td>修正済み（分母を82,775に修正）</td><td>計算済</td></tr><tr><td>03</td><td>製造業・産業構造</td><td>F025</td><td>産業構成比（C 鉱業，採石業，砂利採取業）</td><td>0.048323769254001815</td><td>%</td><td>p1_all_industry.csv</td><td>E_i / E_total * 100</td><td>修正済み（分母を82,775に修正）</td><td>計算済</td></tr><tr><td>03</td><td>製造業・産業構造</td><td>F025</td><td>産業構成比（D 建設業）</td><td>3.781334944125642</td><td>%</td><td>p1_all_industry.csv</td><td>E_i / E_total * 100</td><td>修正済み（分母を82,775に修正）</td><td>計算済</td></tr><tr><td>03</td><td>製造業・産業構造</td><td>F025</td><td>産業構成比（E 製造業）</td><td>44.13047417698581</td><td>%</td><td>p1_all_industry.csv</td><td>E_i / E_total * 100</td><td>修正済み（分母を82,775に修正）</td><td>計算済</td></tr></tbody></table>
 <p class="note">出典: 03_analysis_results.csv。集計単位・対象年度は CSV を参照。人口等の二重計上は防止済み（個別町299行ベース）。</p>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>磐田市オープンデータ ダッシュボード v2（データ駆動版）</title>
+<title>公開オープンデータ ダッシュボード v2（データ駆動版）</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root{--bg:#0a1628;--panel:#0f1d32;--card:#162440;--cyan:#00d4ff;--txt:#e2e8f0;--mut:#94a3b8;--line:#1e3a5f;--warn:#f59e0b;--ok:#22c55e}
@@ -37,7 +37,7 @@ footer{padding:8px 16px;font-size:10px;color:var(--mut);border-top:1px solid var
 </style>
 </head>
 <body>
-<header><h1>磐田市オープンデータ ダッシュボード v2</h1><span class="meta">単体ファイル版（CSV埋め込み・file://可）／将来値は参考値</span></header>
+<header><h1>公開オープンデータ ダッシュボード v2</h1><span class="meta">単体ファイル版（CSV埋め込み・file://可）／将来値は参考値</span></header>
 <div id="err"></div>
 <div class="kpis" id="kpis"></div>
 <div class="main">
@@ -53,7 +53,7 @@ footer{padding:8px 16px;font-size:10px;color:var(--mut);border-top:1px solid var
 <div class="q warn">古：施設2016・公園2017・避難所2017・災害2017/18</div>
 <div class="q warn">未取得：対応表・定員・IPSS・衛星・道路</div>
 </div>
-<footer>出典：磐田市LinkData・静岡県オープンデータ・e-Stat・国土数値情報・気象庁。各値は theme*_v2 / _archive のCSVから取得。</footer>
+<footer>出典：公開オープンデータ・静岡県オープンデータ・e-Stat・国土数値情報・気象庁。各値は theme*_v2 / _archive のCSVから取得。</footer>
 <script>
 function parseCSV(t){const L=t.trim().split(/\r?\n/);const h=L[0].split(',');return L.slice(1).filter(x=>x.trim()).map(r=>{const c=r.split(',');const o={};h.forEach((k,i)=>o[k.trim()]=(c[i]||'').trim());return o;});}
 function num(s){return parseFloat(String(s).replace(/[,"]/g,''))||0;}

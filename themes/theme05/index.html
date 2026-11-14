@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>磐田市 文化・観光 分析</title>
+<title>仮想街いわた 文化・観光 分析</title>
 <style>
 body{font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;margin:0;padding:16px;background:#fafafa;color:#333;}
 .container{max-width:900px;margin:0 auto;}
@@ -20,10 +20,10 @@ th{background:#f5f5f5;}
 <div class="container">
 <nav style="margin-bottom:12px;font-size:14px;"><a href="../../index.html">&larr; 入口へ</a></nav>
 
-<h1>磐田市 文化・観光 分析</h1>
-<p>テーマID: 05 | 対象年度: 2020-2026 | 出典: 磐田市オープンデータ・e-Stat</p>
+<h1>仮想街いわた 文化・観光 分析</h1>
+<p>テーマID: 05 | 対象年度: 2020-2026 | 出典: 公開オープンデータ・e-Stat</p>
 <h2>分析概要</h2>
-<p># テーマ5: 文化・観光資源分析 レポート（v2・作り直し）<br>## 0. 問い・仮説（工程1）<br>- **問い**：磐田市の文化・観光資源はどこにあり、人口に対してどの程度あるか。<br>- **仮説**：観光施設は市内に分散し、文化財と対応した分布を示す。<br>- **検証方法**：文化財186件（住所のみ）と観光施設37件（座標あり）を件数ベースで整理する。文化財の空間分布および文化財と観光施設の対応関係は検証できない（文化財に座標・分類がないため）。<br>## 1. データ出典<br>| データ | 提供元 | 取得日 | 対象年度 | 利用条件 |<br>|---|---|---|---|---|<br>| 文化財一覧 | 磐田市（LinkData rdf1s10219i） | 2026-11-07 | 2024年3月 | CC BY 3.0 |<br>| 観光施設一覧 | 磐田市（LinkData rdf1s10214i） | 2026-11-07 | 2024年3月 | CC BY 3.0 |<br>| 人口（分母） | 静岡県オープンデータ（2022-03-31） | 2026-11-07 | 2022年 | CC BY 3.0 |<br>## 2. 分析結果</p>
+<p># テーマ5: 文化・観光資源分析 レポート（v2・作り直し）<br>## 0. 問い・仮説（工程1）<br>- **問い**：仮想街いわたの文化・観光資源はどこにあり、人口に対してどの程度あるか。<br>- **仮説**：観光施設は市内に分散し、文化財と対応した分布を示す。<br>- **検証方法**：文化財186件（住所のみ）と観光施設37件（座標あり）を件数ベースで整理する。文化財の空間分布および文化財と観光施設の対応関係は検証できない（文化財に座標・分類がないため）。<br>## 1. データ出典<br>| データ | 提供元 | 取得日 | 対象年度 | 利用条件 |<br>|---|---|---|---|---|<br>| 文化財一覧 | 公開オープンデータ | 2026-11-07 | 2024年3月 | CC BY 3.0 |<br>| 観光施設一覧 | 公開オープンデータ | 2026-11-07 | 2024年3月 | CC BY 3.0 |<br>| 人口（分母） | 静岡県オープンデータ（2022-03-31） | 2026-11-07 | 2022年 | CC BY 3.0 |<br>## 2. 分析結果</p>
 <h2>分析結果（抜粋）</h2>
 <table><thead><tr><th>theme_id</th><th>theme_name</th><th>formula_id</th><th>formula_name</th><th>value</th><th>unit</th><th>data_source</th><th>calculation_condition</th><th>notes</th><th>status</th></tr></thead><tbody><tr><td>05</td><td>文化・観光</td><td>F001</td><td>合計（文化財）</td><td>186</td><td>件</td><td>cultural_properties.csv</td><td>資源件数の合計</td><td></td><td>計算済</td></tr><tr><td>05</td><td>文化・観光</td><td>F001</td><td>合計（観光施設）</td><td>37</td><td>件</td><td>tourist_facilities.csv</td><td>資源件数の合計</td><td></td><td>計算済</td></tr><tr><td>05</td><td>文化・観光</td><td>F012</td><td>構成比（料金:無料）</td><td>2.702703</td><td>%</td><td>tourist_facilities.csv fee</td><td>件数 / 総件数 * 100</td><td></td><td>計算済</td></tr><tr><td>05</td><td>文化・観光</td><td>F012</td><td>構成比（料金:不明）</td><td>51.351351</td><td>%</td><td>tourist_facilities.csv fee</td><td>件数 / 総件数 * 100</td><td></td><td>計算済</td></tr><tr><td>05</td><td>文化・観光</td><td>F012</td><td>構成比（料金:入園無料）</td><td>5.405405</td><td>%</td><td>tourist_facilities.csv fee</td><td>件数 / 総件数 * 100</td><td></td><td>計算済</td></tr><tr><td>05</td><td>文化・観光</td><td>F012</td><td>構成比（料金:大人330円、小中学生110円、幼児及び70歳以上無料）</td><td>2.702703</td><td>%</td><td>tourist_facilities.csv fee</td><td>件数 / 総件数 * 100</td><td></td><td>計算済</td></tr><tr><td>05</td><td>文化・観光</td><td>F012</td><td>構成比（料金:入館無料）</td><td>10.810811</td><td>%</td><td>tourist_facilities.csv fee</td><td>件数 / 総件数 * 100</td><td></td><td>計算済</td></tr><tr><td>05</td><td>文化・観光</td><td>F012</td><td>構成比（料金:入館料　大人310円、学生200円、小・中学生100円）</td><td>2.702703</td><td>%</td><td>tourist_facilities.csv fee</td><td>件数 / 総件数 * 100</td><td></td><td>計算済</td></tr></tbody></table>
 <p class="note">出典: 05_analysis_results.csv。集計単位・対象年度は CSV を参照。人口等の二重計上は防止済み（個別町299行ベース）。</p>

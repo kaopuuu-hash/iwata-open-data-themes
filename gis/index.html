@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>磐田市 GISマップ — 町別人口</title>
+<title>仮想街いわた GISマップ — 町別人口</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <style>
   body { font-family: "Hiragino Kaku Gothic ProN","Meiryo",sans-serif; margin:0; padding:0; color:#333; }
@@ -17,9 +17,9 @@
 </style>
 </head>
 <body>
-<div class="titlebar">磐田市 GISマップ — 町別人口 (2020年国勢調査)</div>
+<div class="titlebar">仮想街いわた GISマップ — 町別人口 (2020年国勢調査)</div>
 <div id="map"></div>
-<div class="source">出典: e-Stat 統計地理情報システム (r2ka22, 2020-10-01) / 磐田市オープンデータ。人口は町丁字別国勢調査人口 (JINKO)。</div>
+<div class="source">出典: e-Stat 統計地理情報システム (r2ka22, 2020-10-01) / 公開オープンデータ。人口は町丁字別国勢調査人口 (JINKO)。</div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
 const GEOJSON_URL = 'data/town_population.geojson';
@@ -55,7 +55,7 @@ info.update = function(props) {
       '人口: ' + (d.JINKO != null ? d.JINKO.toLocaleString() : '—') + ' 人<br>' +
       '世帯: ' + (d.SETAI != null ? d.SETAI.toLocaleString() : '—') + ' 世帯<br>' +
       '面積: ' + (d.AREA != null ? (d.AREA/1e6).toFixed(2) : '—') + ' km²'
-    : '<h4>磐田市 町別人口マップ</h4>地域にマウスを重ねると情報が表示されます。';
+    : '<h4>仮想街いわた 町別人口マップ</h4>地域にマウスを重ねると情報が表示されます。';
 };
 info.addTo(map);
 
