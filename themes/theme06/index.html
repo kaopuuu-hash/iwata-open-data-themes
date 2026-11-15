@@ -5,145 +5,47 @@
 <title>仮想街いわた 医療・福祉施設分析</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  body {
-    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background: #fafafa;
-  }
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 16px;
-  }
-  h1 {
-    font-size: 24px;
-    border-bottom: 2px solid #333;
-    padding-bottom: 8px;
-    margin-top: 24px;
-  }
-  h2 {
-    font-size: 20px;
-    border-bottom: 1px solid #999;
-    padding-bottom: 4px;
-    margin-top: 28px;
-  }
-  h3 {
-    font-size: 17px;
-    margin-top: 20px;
-  }
-  p {
-    margin: 8px 0;
-  }
-  ul, ol {
-    margin: 8px 0 8px 24px;
-  }
-  li {
-    margin: 4px 0;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 12px 0;
-    font-size: 14px;
-  }
-  th, td {
-    border: 1px solid #ccc;
-    padding: 6px 8px;
-    text-align: left;
-  }
-  th {
-    background: #f5f5f5;
-  }
-  td.num, th.num {
-    text-align: right;
-  }
-  .note {
-    font-size: 12px;
-    color: #666;
-    margin: 4px 0;
-  }
-  .source-box {
-    margin-top: 16px;
-    padding: 12px;
-    background: #f5f5f5;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 13px;
-  }
-  .source-box h4 {
-    margin: 0 0 6px;
-    font-size: 15px;
-  }
-  .source-box ul {
-    margin: 4px 0 4px 20px;
-  }
-  .source-box li {
-    margin: 3px 0;
-  }
-  .map-frame {
-    width: 100%;
-    height: 400px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 12px 0;
-  }
-  .img-frame {
-    width: 100%;
-    max-width: 600px;
-    margin: 12px auto;
-    display: block;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  .highlight {
-    background: #fffde7;
-    padding: 12px;
-    border-left: 4px solid #fbc02d;
-    margin: 12px 0;
-  }
-  .fact {
-    margin: 8px 0;
-    padding: 8px;
-    background: #f9f9f9;
-    border-left: 3px solid #2196f3;
-  }
-  .limitation {
-    margin: 8px 0;
-    padding: 8px;
-    background: #ffeef0;
-    border-left: 3px solid #e57373;
-  }
-  @media (max-width: 600px) {
-    .container {
-      padding: 12px;
-    }
-    h1 {
-      font-size: 20px;
-    }
-    h2 {
-      font-size: 18px;
-    }
-    table {
-      font-size: 12px;
-    }
-    th, td {
-      padding: 4px 6px;
-    }
-    .map-frame {
-      height: 300px;
-    }
-  }
+:root{--bg:#faf8f4;--card:#ffffff;--ink:#2b2b2b;--muted:#6b6b6b;--accent:#1f6feb;--accent-soft:#e8f0fe;--line:#e5e0d8;--radius:12px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.7}
+header.top{background:#1c2b39;color:#fff;padding:20px 16px}
+header.top h1{margin:0;font-size:1.25rem}
+nav.bread{padding:10px 16px;font-size:.85rem;color:var(--muted)}
+nav.bread a{color:var(--accent);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:0 16px 48px}
+h2{font-size:1.2rem;border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:28px}
+p{margin:10px 0}
+a{color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left}
+th{background:#f2f4f7}
+.note{font-size:.8rem;color:var(--muted);margin-top:16px}
+.theme-nav{max-width:960px;margin:32px auto 0;padding:12px 16px 32px;border-top:1px solid var(--line);font-size:14px}
+h3{font-size:1.05rem;margin-top:20px}
+ul,ol{margin:8px 0 8px 24px}
+li{margin:4px 0}
+td.num,th.num{text-align:right}
+.note{margin:4px 0}
+.source-box{margin-top:16px;padding:12px 16px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);font-size:13px}
+.source-box h4{margin:0 0 6px;font-size:15px}
+.source-box ul{margin:4px 0 4px 20px}
+.source-box li{margin:3px 0}
+.map-frame{width:100%;height:400px;border:1px solid var(--line);border-radius:var(--radius);margin:12px 0}
+.img-frame{width:100%;max-width:600px;margin:12px auto;display:block;border:1px solid var(--line);border-radius:var(--radius)}
+.highlight{background:#fff8e6;border:1px solid #e8d9a8;border-radius:var(--radius);padding:12px 16px;margin:12px 0}
+.fact{margin:8px 0;padding:8px 12px;background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 8px 8px 0}
+.limitation{margin:8px 0;padding:8px 12px;background:#ffeef0;border-left:3px solid #e57373;border-radius:0 8px 8px 0}
+@media (max-width:600px){.container{padding:0 12px 40px}h2{font-size:1.1rem}table{font-size:12px}th,td{padding:4px 6px}.map-frame{height:300px}}
 </style>
 </head>
 <body>
+<header class="top"><h1>仮想街いわた 医療・福祉施設分析</h1></header>
+<nav class="bread"><a href="../../index.html">&larr; 入口へ</a></nav>
 <div class="container">
-<nav style="margin-bottom:12px;font-size:14px;"><a href="../../index.html">&larr; 入口へ</a></nav>
 
 
-<h1>仮想街いわた 医療・福祉施設分析</h1>
+
+
 
 <h2>1. 分析の目的</h2>
 <p>仮想街いわたの医療・福祉サービスはどの程度あるか。種別構成はどうか。医療・介護施設の分布、人口との関係、地域別アクセス格差を分析する。</p>
@@ -314,6 +216,6 @@
 
 <p style="margin-top:16px;font-size:14px;">レポート・深掘り版は <a href="https://kaopuuu-hash.github.io/iwata-open-data-analysis/">分析サイト（レポート・深掘り版）入口</a> からご覧いただけます。</p>
 <!-- theme-nav -->
-<nav style="margin-top:32px;padding-top:12px;border-top:1px solid #ccc;font-size:14px;"><a href="../theme05/index.html">&larr; 前のテーマ: 文化・観光</a> ｜ <a href="../theme07/index.html">次のテーマ: 買い物アクセス困難地域マップ &rarr;</a> ｜ <a href="../../index.html">入口へ戻る</a></nav>
+<nav class="theme-nav"><a href="../theme05/index.html">&larr; 前のテーマ: 文化・観光</a> ｜ <a href="../theme07/index.html">次のテーマ: 買い物アクセス困難地域マップ &rarr;</a> ｜ <a href="../../index.html">入口へ戻る</a></nav>
 </body>
 </html>

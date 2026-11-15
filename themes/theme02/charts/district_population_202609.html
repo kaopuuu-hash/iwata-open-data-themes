@@ -7,9 +7,10 @@
 <!-- Plotly.js from official CDN (cdn.plot.ly). SRI not added because hash is version-specific; offline fallback is the PNG in the same folder. -->
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 <style>
-body{font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;margin:0;padding:16px;background:#fafafa;color:#333;}
-#chart{width:100%;max-width:900px;margin:0 auto;}
-.note{max-width:900px;margin:12px auto;font-size:12px;color:#666;}
+:root{--bg:#faf8f4;--card:#ffffff;--ink:#2b2b2b;--muted:#6b6b6b;--accent:#1f6feb;--accent-soft:#e8f0fe;--line:#e5e0d8;--radius:12px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:16px;background:var(--bg);color:var(--ink)}
+#chart{width:100%;max-width:960px;margin:0 auto}
+.note{max-width:960px;margin:12px auto;font-size:.8rem;color:var(--muted)}
 </style>
 </head>
 <body>

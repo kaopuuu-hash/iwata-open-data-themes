@@ -5,22 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>仮想街いわた 子育て環境 分析</title>
 <style>
-body{font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;margin:0;padding:16px;background:#fafafa;color:#333;}
-.container{max-width:900px;margin:0 auto;}
-h1{font-size:24px;border-bottom:2px solid #333;padding-bottom:8px;}
-h2{font-size:20px;border-bottom:1px solid #999;padding-bottom:4px;margin-top:28px;}
-p{margin:8px 0;line-height:1.6;}
-table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px;}
-th,td{border:1px solid #ccc;padding:6px 8px;text-align:left;}
-th{background:#f5f5f5;}
-.note{font-size:12px;color:#666;margin-top:16px;}
+:root{--bg:#faf8f4;--card:#ffffff;--ink:#2b2b2b;--muted:#6b6b6b;--accent:#1f6feb;--accent-soft:#e8f0fe;--line:#e5e0d8;--radius:12px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.7}
+header.top{background:#1c2b39;color:#fff;padding:20px 16px}
+header.top h1{margin:0;font-size:1.25rem}
+nav.bread{padding:10px 16px;font-size:.85rem;color:var(--muted)}
+nav.bread a{color:var(--accent);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:0 16px 48px}
+h2{font-size:1.2rem;border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:28px}
+p{margin:10px 0}
+a{color:var(--accent)}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left}
+th{background:#f2f4f7}
+.note{font-size:.8rem;color:var(--muted);margin-top:16px}
+.theme-nav{max-width:960px;margin:32px auto 0;padding:12px 16px 32px;border-top:1px solid var(--line);font-size:14px}
 </style>
 </head>
 <body>
+<header class="top"><h1>仮想街いわた 子育て環境 分析</h1></header>
+<nav class="bread"><a href="../../index.html">&larr; 入口へ</a></nav>
 <div class="container">
-<nav style="margin-bottom:12px;font-size:14px;"><a href="../../index.html">&larr; 入口へ</a></nav>
 
-<h1>仮想街いわた 子育て環境 分析</h1>
+
+
 <p>テーマID: 04 | 対象年度: 2020-2026 | 出典: 公開オープンデータ・e-Stat</p>
 <h2>分析概要</h2>
 <p># テーマ4: 子育て環境分析 レポート（v2・作り直し）<br>## 0. 問い・仮説（工程1）<br>- **問い**：児童人口に対して子育て関連施設はどう配置されているか。対象年齢別の偏りはあるか。<br>- **仮説**：小学校・保育施設は児童人口に対応して配置され、年齢層間の偏りは小さい。<br>- **検証方法**：施設種別ごとの件数と、対象年齢人口（2021年）に対する千人当たり件数を算出する。充足度の判定は行わない（定員・利用者数データがないため）。<br>## 1. データ出典<br>| データ | 提供元 | 取得日 | 対象年度 | 利用条件 |<br>|---|---|---|---|---|<br>| 公共施設情報（基本＋建物） | 公開オープンデータ | 2026-11-07 | 2016年公開 | CC BY 3.0 |<br>| 年齢別人口 | 公開オープンデータ | 2026-11-07 | 2021年 | CC BY 3.0 |<br>## 2. 分析結果<br>### 2.1 施設数（111件）</p>
@@ -30,6 +39,6 @@ th{background:#f5f5f5;}
 </div>
 
 <!-- theme-nav -->
-<nav style="margin-top:32px;padding-top:12px;border-top:1px solid #ccc;font-size:14px;"><a href="../theme03/index.html">&larr; 前のテーマ: 製造業</a> ｜ <a href="../theme05/index.html">次のテーマ: 文化・観光 &rarr;</a> ｜ <a href="../../index.html">入口へ戻る</a></nav>
+<nav class="theme-nav"><a href="../theme03/index.html">&larr; 前のテーマ: 製造業</a> ｜ <a href="../theme05/index.html">次のテーマ: 文化・観光 &rarr;</a> ｜ <a href="../../index.html">入口へ戻る</a></nav>
 </body>
 </html>
