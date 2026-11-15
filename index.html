@@ -5,56 +5,71 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>公開オープンデータ分析 テーマ別サイト</title>
 <style>
-body{font-family:"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;margin:0;padding:24px 16px;background:#fafafa;color:#333;line-height:1.7;}
-.container{max-width:900px;margin:0 auto;}
-h1{font-size:26px;border-bottom:2px solid #333;padding-bottom:10px;}
-h2{font-size:20px;border-bottom:1px solid #999;padding-bottom:4px;margin-top:32px;}
-p{margin:10px 0;}
-ul{margin:8px 0;padding-left:24px;}
-li{margin:6px 0;}
-.note{font-size:12px;color:#666;margin-top:24px;}
+:root{--bg:#faf8f4;--card:#ffffff;--ink:#2b2b2b;--muted:#6b6b6b;--accent:#1f6feb;--accent-soft:#e8f0fe;--line:#e5e0d8;--radius:12px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.7}
+header.top{background:#1c2b39;color:#fff;padding:20px 16px}
+header.top h1{margin:0;font-size:1.25rem}
+main{max-width:960px;margin:0 auto;padding:0 16px 48px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.card p:first-child{margin-top:0}
+.card p:last-child{margin-bottom:0}
+h2{font-size:1.1rem;margin:28px 0 8px}
+p{margin:10px 0}
+a{color:var(--accent)}
+.grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+.theme-link{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;color:inherit;text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.theme-link:hover{border-color:var(--accent)}
+.theme-link h3{margin:0;font-size:.98rem;font-weight:600}
+.theme-link p{margin:4px 0 0;font-size:.8rem;color:var(--muted)}
+.note{font-size:.78rem;color:var(--muted);margin-top:24px}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>公開オープンデータ分析 テーマ別サイト</h1>
+<header class="top"><h1>公開オープンデータ分析 テーマ別サイト</h1></header>
+<main>
+<div class="card">
 <p>仮想街いわたのオープンデータをテーマ別に分析したページ集です。各テーマの分析ページ、統合ダッシュボード、GISマップへリンクします。</p>
 <p class="note" style="margin-top:0;">本サイトは、公開データを題材にした仮想の街『いわた』の分析演習です。</p>
+</div>
 <h2>テーマ別分析</h2>
-<ul>
-<li><a href="themes/theme01/index.html">テーマ01: 施設・人口</a></li>
-<li><a href="themes/theme02/index.html">テーマ02: 人口構造</a></li>
-<li><a href="themes/theme03/index.html">テーマ03: 製造業</a></li>
-<li><a href="themes/theme04/index.html">テーマ04: 子育て環境</a></li>
-<li><a href="themes/theme05/index.html">テーマ05: 文化・観光</a></li>
-<li><a href="themes/theme06/index.html">テーマ06: 医療・福祉施設</a></li>
-<li><a href="themes/theme07/index.html">テーマ07: 買い物アクセス困難地域マップ</a></li>
-<li><a href="themes/theme08/index.html">テーマ08: 公共交通</a></li>
-<li><a href="themes/theme09/index.html">テーマ09: 生活デザート</a></li>
-<li><a href="themes/theme10/index.html">テーマ10: 公園・緑地</a></li>
-<li><a href="themes/theme11/index.html">テーマ11: 災害リスク・地域防災力 統合分析マップ</a></li>
-<li><a href="themes/theme12/index.html">テーマ12: 避難・孤立</a></li>
-<li><a href="themes/theme13/index.html">テーマ13: 土地利用・住宅</a>（データ不足のため暫定版）</li>
-<li><a href="themes/theme14/index.html">テーマ14: 施設・将来負担</a></li>
-<li><a href="themes/theme15/index.html">テーマ15: 緑化・暑熱</a></li>
-</ul>
+<div class="grid">
+<a class="theme-link" href="themes/theme01/index.html"><h3>テーマ01: 施設・人口</h3></a>
+<a class="theme-link" href="themes/theme02/index.html"><h3>テーマ02: 人口構造</h3></a>
+<a class="theme-link" href="themes/theme03/index.html"><h3>テーマ03: 製造業</h3></a>
+<a class="theme-link" href="themes/theme04/index.html"><h3>テーマ04: 子育て環境</h3></a>
+<a class="theme-link" href="themes/theme05/index.html"><h3>テーマ05: 文化・観光</h3></a>
+<a class="theme-link" href="themes/theme06/index.html"><h3>テーマ06: 医療・福祉施設</h3></a>
+<a class="theme-link" href="themes/theme07/index.html"><h3>テーマ07: 買い物アクセス困難地域マップ</h3></a>
+<a class="theme-link" href="themes/theme08/index.html"><h3>テーマ08: 公共交通</h3></a>
+<a class="theme-link" href="themes/theme09/index.html"><h3>テーマ09: 生活デザート</h3></a>
+<a class="theme-link" href="themes/theme10/index.html"><h3>テーマ10: 公園・緑地</h3></a>
+<a class="theme-link" href="themes/theme11/index.html"><h3>テーマ11: 災害リスク・地域防災力 統合分析マップ</h3></a>
+<a class="theme-link" href="themes/theme12/index.html"><h3>テーマ12: 避難・孤立</h3></a>
+<a class="theme-link" href="themes/theme13/index.html"><h3>テーマ13: 土地利用・住宅</h3><p>（データ不足のため暫定版）</p></a>
+<a class="theme-link" href="themes/theme14/index.html"><h3>テーマ14: 施設・将来負担</h3></a>
+<a class="theme-link" href="themes/theme15/index.html"><h3>テーマ15: 緑化・暑熱</h3></a>
+</div>
 <h2>ダッシュボード</h2>
-<ul>
-<li><a href="dashboards/iwata_dashboard_standalone.html">公開オープンデータ ダッシュボード v2（データ駆動版）</a></li>
-<li><a href="dashboards/iwata_dashboard_v2.html">公開オープンデータ ダッシュボード v2（データ駆動版）</a></li>
-<li><a href="dashboards/iwata_gis_map_v2.html">公開オープンデータ GIS可視化 v2</a></li>
-<li><a href="dashboards/iwata_gis_prototype.html">公開オープンデータ GIS可視化プロトタイプ</a></li>
-</ul>
+<div class="grid">
+<a class="theme-link" href="dashboards/iwata_dashboard_standalone.html"><h3>公開オープンデータ ダッシュボード v2（データ駆動版）</h3></a>
+<a class="theme-link" href="dashboards/iwata_dashboard_v2.html"><h3>公開オープンデータ ダッシュボード v2（データ駆動版）</h3></a>
+<a class="theme-link" href="dashboards/iwata_gis_map_v2.html"><h3>公開オープンデータ GIS可視化 v2</h3></a>
+<a class="theme-link" href="dashboards/iwata_gis_prototype.html"><h3>公開オープンデータ GIS可視化プロトタイプ</h3></a>
+</div>
 <h2>GIS</h2>
-<ul>
-<li><a href="gis/index.html">仮想街いわた GISマップ — 町別人口</a></li>
-</ul>
+<div class="grid">
+<a class="theme-link" href="gis/index.html"><h3>仮想街いわた GISマップ — 町別人口</h3></a>
+</div>
 <h2>全体を俯瞰して</h2>
+<div class="card">
 <p>15のテーマを通して見える仮想街いわたの土台は、「縮む・老いる・製造業の市」です。人口は2007年から2022年にかけて5.0%減少して167,663人となり、高齢化率は28.9%に達しています。一方で、全産業従業者の44.1%を製造業が占める、突出した産業構造を持っています。</p>
 <p>各分野の課題は分野ごとに別々の形ではなく、「中心部に集まり、周辺に空白ができる」という同じ形で繰り返し現れます。買い物アクセス困難地域は73メッシュ・24,507人（テーマ7）、医療機関から1kmを超える地域は31メッシュ・8,077人（テーマ6）に及び、バス停の偏在（テーマ8・9）や避難所43件の配置（テーマ12）にも共通します。</p>
 <p>災害リスクでは洪水が支配的で、洪水リスク人口は29,900人（対象人口の約18%）、複合リスク人口は6,428人です。津波リスクはメッシュデータ上では0となっていますが、これは実態ではなく、データの取得範囲によるものです。</p>
 <p>分析の深さにはテーマごとの差があります。深掘り型で充実しているのはテーマ2（人口構造）とテーマ6（医療・福祉）で、他のテーマは計算過程の記録が中心です。また、数値の食い違いが2点残っています。公園の件数（テーマ10では93件、テーマ15では94件）と、総人口（167,663人と、メッシュ集計の166,672人で約1,000人の差）です。なお、データが不足して判定できないことは「できない」と明記する姿勢が、全テーマで一貫しています。</p>
-<p class="note">出典: 公開オープンデータ・e-Stat等。レポート・深掘り版は <a href="https://kaopuuu-hash.github.io/iwata-open-data-analysis/">分析サイト</a> をご覧ください。</p>
 </div>
+<p class="note">出典: 公開オープンデータ・e-Stat等。レポート・深掘り版は <a href="https://kaopuuu-hash.github.io/iwata-open-data-analysis/">分析サイト</a> をご覧ください。</p>
+</main>
 </body>
 </html>
