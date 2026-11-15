@@ -6,32 +6,32 @@
 <title>公開オープンデータ ダッシュボード v2（データ駆動版）</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-:root{--bg:#0a1628;--panel:#0f1d32;--card:#162440;--cyan:#00d4ff;--txt:#e2e8f0;--mut:#94a3b8;--line:#1e3a5f;--warn:#f59e0b;--ok:#22c55e}
+:root{--bg:#faf8f4;--panel:#ffffff;--card:#ffffff;--cyan:#1f6feb;--txt:#2b2b2b;--mut:#64748b;--line:#e5e0d8;--warn:#d97706;--ok:#16a34a}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Yu Gothic',sans-serif;background:var(--bg);color:var(--txt);font-size:13px}
-header{background:var(--panel);border-bottom:1px solid var(--line);padding:10px 16px}
-header h1{font-size:15px;color:var(--cyan)}
-header .meta{font-size:11px;color:var(--mut)}
-#err{display:none;background:#3a1010;color:#ffb4b4;padding:8px 16px;font-size:12px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;background:var(--bg);color:var(--txt);font-size:13px}
+header{background:#1c2b39;border-bottom:1px solid #1c2b39;padding:10px 16px}
+header h1{font-size:15px;color:#fff}
+header .meta{font-size:11px;color:#c7d0da}
+#err{display:none;background:#fbe9e9;color:#b91c1c;padding:8px 16px;font-size:12px}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;padding:10px 16px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px;text-align:center}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:8px;text-align:center}
 .kpi .v{font-size:18px;font-weight:700;color:var(--cyan)}
 .kpi .l{font-size:10px;color:var(--mut)}
 .main{display:grid;grid-template-columns:1.2fr 1fr;gap:10px;padding:0 16px}
-.mapbox{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;min-height:480px}
+.mapbox{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden;min-height:480px}
 .mapbox iframe{width:100%;height:480px;border:0}
 .charts{display:grid;gap:10px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:10px}
 .card h3{font-size:12px;color:var(--cyan);margin-bottom:6px}
 .chartbox{height:170px}
 table{width:100%;border-collapse:collapse;font-size:11px}
 th,td{border:1px solid var(--line);padding:4px 6px;text-align:right}
 th:first-child,td:first-child{text-align:left}
-th{background:var(--panel);color:var(--cyan)}
+th{background:#f2f4f7;color:var(--cyan)}
 .quality{display:flex;gap:6px;padding:10px 16px;flex-wrap:wrap}
 .q{flex:1;min-width:140px;text-align:center;padding:6px;border-radius:4px;font-size:11px}
-.q.ok{background:rgba(34,197,94,.15);color:var(--ok);border:1px solid rgba(34,197,94,.3)}
-.q.warn{background:rgba(245,158,11,.15);color:var(--warn);border:1px solid rgba(245,158,11,.3)}
+.q.ok{background:rgba(22,163,74,.12);color:var(--ok);border:1px solid rgba(22,163,74,.35)}
+.q.warn{background:rgba(217,119,6,.12);color:var(--warn);border:1px solid rgba(217,119,6,.35)}
 footer{padding:8px 16px;font-size:10px;color:var(--mut);border-top:1px solid var(--line)}
 @media(max-width:900px){.main{grid-template-columns:1fr}}
 </style>
@@ -75,28 +75,28 @@ const py = ts.map(r=>r.year), pv = ts.map(r=>num(r.total)), av = ts.map(r=>num(r
 py.push('2050(参考)'); pv.push(num(proj[proj.length-1]['Population'])); av.push(num(proj[proj.length-1]['Aging Rate']));
 new Chart(document.getElementById('cPop'),{type:'line',
 data:{labels:py,datasets:[
-{label:'総人口',data:pv,borderColor:'#00d4ff',backgroundColor:'rgba(0,212,255,.1)',fill:true,tension:.3,yAxisID:'y'},
+{label:'総人口',data:pv,borderColor:'#1f6feb',backgroundColor:'rgba(31,111,235,.12)',fill:true,tension:.3,yAxisID:'y'},
 {label:'高齢化率%',data:av,borderColor:'#f59e0b',tension:.3,yAxisID:'y1'}]},
-options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#94a3b8',font:{size:10}}}},
-scales:{x:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}},
-y:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}},
-y1:{position:'right',ticks:{color:'#94a3b8',font:{size:9}},grid:{display:false}}}}});
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#64748b',font:{size:10}}}},
+scales:{x:{ticks:{color:'#64748b',font:{size:9}},grid:{color:'#e5e0d8'}},
+y:{ticks:{color:'#64748b',font:{size:9}},grid:{color:'#e5e0d8'}},
+y1:{position:'right',ticks:{color:'#64748b',font:{size:9}},grid:{display:false}}}}});
 const tot_e = num(mfg[0].employees), tot_s = num(mfg[0].est_total);
 const subs = mfg.slice(1).filter(r=>r.code!=='00').sort((a,b)=>num(b.employees)-num(a.employees)).slice(0,7);
 new Chart(document.getElementById('cInd'),{type:'bar',
 data:{labels:subs.map(r=>r.name),datasets:[
-{label:'従業者%',data:subs.map(r=>+(num(r.employees)/tot_e*100).toFixed(1)),backgroundColor:'#00d4ff'},
+{label:'従業者%',data:subs.map(r=>+(num(r.employees)/tot_e*100).toFixed(1)),backgroundColor:'#1f6feb'},
 {label:'事業所%',data:subs.map(r=>+(num(r.est_total)/tot_s*100).toFixed(1)),backgroundColor:'#3b82f6'}]},
-options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#94a3b8',font:{size:10}}}},
-scales:{x:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}},
-y:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}}}}});
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#64748b',font:{size:10}}}},
+scales:{x:{ticks:{color:'#64748b',font:{size:9}},grid:{color:'#e5e0d8'}},
+y:{ticks:{color:'#64748b',font:{size:9}},grid:{color:'#e5e0d8'}}}}});
 const bins = Array(8).fill(0), labels = ['0-10','10-20','20-30','30-40','40-50','50-60','60-70','70+'];
 town.forEach(r=>{const a=num(r.aging_rate);bins[Math.min(7,Math.floor(a/10))]++;});
 new Chart(document.getElementById('cAge'),{type:'bar',
 data:{labels:labels,datasets:[{label:'町数',data:bins,backgroundColor:'#14b8a6'}]},
 options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
-scales:{x:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}},
-y:{ticks:{color:'#94a3b8',font:{size:9}},grid:{color:'#1e3a5f'}}}}});
+scales:{x:{ticks:{color:'#64748b',font:{size:9}},grid:{color:'#e5e0d8'}},
+y:{ticks:{color:'#64748b',font:{size:9}},grid:{color:'#e5e0d8'}}}}});
 }catch(e){document.getElementById('err').style.display='block';document.getElementById('err').textContent='描画エラー: '+e.message;}
 })();
 </script>
